@@ -16,9 +16,9 @@ This repository is the foundational cloud infrastructure layer of a three-tier d
 
 | Repository | Tech Stack | Role |
 | :--- | :--- | :--- |
-| [🏗️ `hospital-system-infra`](https://github.com/Dubemphil/hospital-system-infra) | Terraform, AWS (VPC, ECS, RDS, CloudFront, KMS, OIDC) | Core Cloud Infrastructure & Security Foundation |
-| [☕ `hospital-system-backend`](https://github.com/Dubemphil/hospital-system-backend) | Spring Boot (Java), MySQL, Docker, Maven | RESTful Healthcare API & Business Logic |
-| [⚛️ `hospital-system-frontend`](https://github.com/Dubemphil/hospital-system-frontend) | React 18, HTML5/CSS3, Single-Page App | Patient & Staff Interactive Web Portal |
+| [🏗️ `hospital_terraform`](https://github.com/Dubemphil/hospital_terraform) | Terraform, AWS (VPC, ECS, RDS, CloudFront, KMS, OIDC) | Core Cloud Infrastructure & Security Foundation |
+| [☕ `hospital_backend`](https://github.com/Dubemphil/hospital-system-backend) | Spring Boot (Java), MySQL, Docker, Maven | RESTful Healthcare API & Business Logic |
+| [⚛️ `hospital_frontend`](https://github.com/Dubemphil/hospital-system-frontend) | React 18, HTML5/CSS3, Single-Page App | Patient & Staff Interactive Web Portal |
 
 ---
 
@@ -104,7 +104,9 @@ This infrastructure is engineered to satisfy the rigorous technical safeguards m
 ## 📁 Repository Structure
 
 ```
-hospital-system-infra/
+hospital_terraform/
+├── .github/workflows/        # Automated GitHub Actions CI/CD (Plan & Apply via OIDC)
+│   └── terraform-ci-cd.yml
 ├── main.tf                    # Root orchestration wiring all submodules
 ├── variables.tf               # Global input variables with validation
 ├── outputs.tf                 # Global outputs (ALB DNS, CloudFront, ECR, RDS, OIDC)
@@ -112,16 +114,14 @@ hospital-system-infra/
 ├── terraform.tfvars.example   # Example staging/production variable overrides
 ├── .gitignore                 # Production ignore protecting .terraform & *.tfvars
 │
-├── modules/
-│   ├── vpc/                   # 3-tier VPC, subnets across 2 AZs, NAT GW, Flow Logs
-│   ├── security/              # KMS CMK, Secrets Manager, chained Security Groups
-│   ├── rds/                   # Amazon RDS MySQL 8.0, Subnet Group, Parameter Group
-│   ├── ecr/                   # ECR with scan-on-push, lifecycle policy, KMS encryption
-│   ├── ecs/                   # ECS Fargate Cluster, Task Def, Service, ALB, Auto-scaling
-│   ├── frontend/              # S3 private bucket, CloudFront CDN with modern OAC
-│   └── oidc/                  # GitHub Actions OIDC Provider & Least-Privilege IAM Roles
-│
-└── legacy_gcp/                # Archived GCP Terraform files (Cloud Run & Cloud SQL)
+└── modules/
+    ├── vpc/                   # 3-tier VPC, subnets across 2 AZs, NAT GW, Flow Logs
+    ├── security/              # KMS CMK, Secrets Manager, chained Security Groups
+    ├── rds/                   # Amazon RDS MySQL 8.0, Subnet Group, Parameter Group
+    ├── ecr/                   # ECR with scan-on-push, lifecycle policy, KMS encryption
+    ├── ecs/                   # ECS Fargate Cluster, Task Def, Service, ALB, Auto-scaling
+    ├── frontend/              # S3 private bucket, CloudFront CDN with modern OAC
+    └── oidc/                  # GitHub Actions OIDC Provider & Least-Privilege IAM Roles
 ```
 
 ---

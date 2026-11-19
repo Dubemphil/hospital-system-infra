@@ -17,6 +17,63 @@ resource "aws_iam_openid_connect_provider" "github" {
 }
 
 # ------------------------------------------------------------------------------
+# IAM Role: Infrastructure CI/CD Pipeline (Terraform Plan & Apply)
+# ------------------------------------------------------------------------------
+resource "aws_iam_role" "infra_deployer" {
+  name = "${var.project_name}-${var.environment}-infra-deployer-role"
+
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Effect = "Allow"
+        Principal = {
+          Federated = aws_iam_openid_connect_provider.github.arn
+        }
+        Action = "sts:AssumeRoleWithWebIdentity"
+        Condition = {
+          StringEquals = {
+            "token.actions.githubusercontent.com:aud" = "sts.amazonaws.com"
+          }
+          StringLike = {
+            "token.actions.githubusercontent.com:sub" = [
+              "repo:${var.github_org}/${var.github_infra_repo}:*",
+              "repo:${var.github_org}/hospital-system-infra:*",
+              "repo:${var.github_org}/hospital_terraform:*"
+            ]
+          }
+        }
+      }
+    ]
+  })
+
+  tags = var.tags
+}
+
+resource "aws_iam_role_policy_attachment" "infra_deployer_poweruser" {
+  role       = aws_iam_role.infra_deployer.name
+  policy_arn = "arn:aws:iam::aws:policy/PowerUserAccess"
+}
+
+resource "aws_iam_role_policy" "infra_deployer_iam" {
+  name = "${var.project_name}-${var.environment}-infra-iam-policy"
+  role = aws_iam_role.infra_deployer.id
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Effect = "Allow"
+        Action = [
+          "iam:*"
+        ]
+        Resource = "*"
+      }
+    ]
+  })
+}
+
+# ------------------------------------------------------------------------------
 # IAM Role: Backend CI/CD Pipeline (ECR Push & ECS Deploy)
 # ------------------------------------------------------------------------------
 resource "aws_iam_role" "backend_deployer" {
@@ -36,7 +93,10 @@ resource "aws_iam_role" "backend_deployer" {
             "token.actions.githubusercontent.com:aud" = "sts.amazonaws.com"
           }
           StringLike = {
-            "token.actions.githubusercontent.com:sub" = "repo:${var.github_org}/${var.github_backend_repo}:*"
+            "token.actions.githubusercontent.com:sub" = [
+              "repo:${var.github_org}/${var.github_backend_repo}:*",
+              "repo:${var.github_org}/hospital_backend:*"
+            ]
           }
         }
       }
@@ -128,7 +188,10 @@ resource "aws_iam_role" "frontend_deployer" {
             "token.actions.githubusercontent.com:aud" = "sts.amazonaws.com"
           }
           StringLike = {
-            "token.actions.githubusercontent.com:sub" = "repo:${var.github_org}/${var.github_frontend_repo}:*"
+            "token.actions.githubusercontent.com:sub" = [
+              "repo:${var.github_org}/${var.github_frontend_repo}:*",
+              "repo:${var.github_org}/hospital_frontend:*"
+            ]
           }
         }
       }
@@ -171,4 +234,3 @@ resource "aws_iam_role_policy" "frontend_deployer" {
     ]
   })
 }
-
