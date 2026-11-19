@@ -171,3 +171,4 @@ resource "aws_iam_role_policy" "frontend_deployer" {
     ]
   })
 }
+

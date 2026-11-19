@@ -188,3 +188,4 @@ resource "aws_s3_bucket_policy" "frontend" {
 
   depends_on = [aws_s3_bucket_public_access_block.frontend]
 }
+

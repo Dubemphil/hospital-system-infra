@@ -12,3 +12,4 @@ output "frontend_deployer_role_arn" {
   description = "The ARN of the IAM role for Frontend GitHub Actions"
   value       = aws_iam_role.frontend_deployer.arn
 }
+

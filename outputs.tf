@@ -89,3 +89,4 @@ output "github_oidc_frontend_role_arn" {
   description = "IAM Role ARN for Frontend GitHub Actions CI/CD pipeline"
   value       = module.oidc.frontend_deployer_role_arn
 }
+

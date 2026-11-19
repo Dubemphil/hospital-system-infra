@@ -27,3 +27,4 @@ output "db_name" {
   description = "The database name"
   value       = aws_db_instance.main.db_name
 }
+

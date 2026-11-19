@@ -215,3 +215,4 @@ resource "aws_flow_log" "main" {
     Name = "${var.project_name}-${var.environment}-vpc-flow-logs"
   })
 }
+

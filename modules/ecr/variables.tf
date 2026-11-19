@@ -32,3 +32,4 @@ variable "tags" {
   description = "Common tags to apply to all resources"
   default     = {}
 }
+

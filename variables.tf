@@ -132,3 +132,4 @@ variable "github_infra_repo" {
   description = "Repository name for the Terraform infrastructure"
   default     = "hospital-system-infra"
 }
+
