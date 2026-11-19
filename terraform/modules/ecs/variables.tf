@@ -91,9 +91,14 @@ variable "kms_key_arn" {
   description = "KMS CMK ARN for decrypting secrets and CloudWatch logs"
 }
 
+variable "acm_certificate_arn" {
+  type        = string
+  description = "ARN of the ACM certificate for ALB HTTPS listener (api.devopsstandard.name.ng)"
+  default     = null
+}
+
 variable "tags" {
   type        = map(string)
   description = "Common tags to apply to all resources"
   default     = {}
 }
-

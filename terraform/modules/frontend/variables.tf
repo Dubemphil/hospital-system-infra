@@ -21,9 +21,20 @@ variable "kms_key_arn" {
   default     = null
 }
 
+variable "domain_name" {
+  type        = string
+  description = "Custom root domain name (e.g. devopsstandard.name.ng)"
+  default     = null
+}
+
+variable "acm_certificate_arn" {
+  type        = string
+  description = "ARN of the ACM certificate for CloudFront (Must be in us-east-1)"
+  default     = null
+}
+
 variable "tags" {
   type        = map(string)
   description = "Common tags to apply to all resources"
   default     = {}
 }
-

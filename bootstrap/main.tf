@@ -68,3 +68,4 @@ resource "aws_dynamodb_table" "terraform_locks" {
     Name = "${var.project_name}-terraform-locks"
   }
 }
+

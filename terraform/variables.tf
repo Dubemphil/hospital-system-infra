@@ -26,6 +26,33 @@ variable "project_name" {
 }
 
 # ------------------------------------------------------------------------------
+# Custom Domain & SSL/TLS Variables
+# ------------------------------------------------------------------------------
+variable "enable_custom_domain" {
+  type        = bool
+  description = "Whether to provision ACM certificate and configure custom domain aliases"
+  default     = true
+}
+
+variable "domain_name" {
+  type        = string
+  description = "Frontend custom domain name"
+  default     = "devopsstandard.name.ng"
+}
+
+variable "api_subdomain" {
+  type        = string
+  description = "Backend API custom subdomain name"
+  default     = "api.devopsstandard.name.ng"
+}
+
+variable "manage_route53" {
+  type        = bool
+  description = "Set to true if Route 53 manages the hosted zone and should auto-create DNS records"
+  default     = false
+}
+
+# ------------------------------------------------------------------------------
 # Networking Variables
 # ------------------------------------------------------------------------------
 variable "vpc_cidr" {
@@ -130,6 +157,5 @@ variable "github_frontend_repo" {
 variable "github_infra_repo" {
   type        = string
   description = "Repository name for the Terraform infrastructure"
-  default     = "hospital-system-infra"
+  default     = "hospital_terraform"
 }
-

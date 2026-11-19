@@ -145,6 +145,8 @@ resource "aws_cloudfront_distribution" "frontend" {
     response_page_path    = "/index.html"
   }
 
+  aliases = var.domain_name != null && var.acm_certificate_arn != null ? [var.domain_name, "www.${var.domain_name}"] : []
+
   restrictions {
     geo_restriction {
       restriction_type = "none"
@@ -152,7 +154,10 @@ resource "aws_cloudfront_distribution" "frontend" {
   }
 
   viewer_certificate {
-    cloudfront_default_certificate = true
+    cloudfront_default_certificate = var.acm_certificate_arn == null
+    acm_certificate_arn            = var.acm_certificate_arn
+    ssl_support_method             = var.acm_certificate_arn != null ? "sni-only" : null
+    minimum_protocol_version       = var.acm_certificate_arn != null ? "TLSv1.2_2021" : null
   }
 
   tags = merge(var.tags, {

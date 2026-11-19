@@ -1,6 +1,6 @@
 # ==============================================================================
 # Main Orchestration - Hospital Management System (AWS Infrastructure)
-# Modular Architecture | Least-Privilege IAM | HIPAA Compliant
+# Modular Architecture | Custom Domain (devopsstandard.name.ng) | HIPAA Compliant
 # ==============================================================================
 
 # ------------------------------------------------------------------------------
@@ -74,7 +74,7 @@ module "ecs" {
   private_subnet_ids    = module.vpc.private_app_subnet_ids
   alb_security_group_id = module.security.alb_security_group_id
   ecs_security_group_id = module.security.ecs_security_group_id
-  container_image       = module.ecr.repository_url # Initial task references ECR repository
+  container_image       = module.ecr.repository_url
   container_port        = var.backend_container_port
   task_cpu              = var.ecs_task_cpu
   task_memory           = var.ecs_task_memory
@@ -84,6 +84,7 @@ module "ecs" {
   db_username           = var.db_username
   db_secret_arn         = module.security.db_secret_arn
   kms_key_arn           = module.security.kms_key_arn
+  acm_certificate_arn   = var.enable_custom_domain ? module.acm[0].certificate_arn : null
 }
 
 # ------------------------------------------------------------------------------
@@ -92,14 +93,33 @@ module "ecs" {
 module "frontend" {
   source = "./modules/frontend"
 
-  environment  = var.environment
-  project_name = var.project_name
-  alb_dns_name = module.ecs.alb_dns_name
-  kms_key_arn  = module.security.kms_key_arn
+  environment         = var.environment
+  project_name        = var.project_name
+  alb_dns_name        = module.ecs.alb_dns_name
+  kms_key_arn         = module.security.kms_key_arn
+  domain_name         = var.enable_custom_domain ? var.domain_name : null
+  acm_certificate_arn = var.enable_custom_domain ? module.acm[0].certificate_arn : null
 }
 
 # ------------------------------------------------------------------------------
-# 7. CI/CD Identity Federation (GitHub Actions OIDC Least-Privilege Roles)
+# 7. SSL/TLS Certificate & Custom Domains (ACM & Route 53)
+# ------------------------------------------------------------------------------
+module "acm" {
+  count  = var.enable_custom_domain ? 1 : 0
+  source = "./modules/acm"
+
+  environment            = var.environment
+  project_name           = var.project_name
+  domain_name            = var.domain_name
+  api_subdomain          = var.api_subdomain
+  manage_route53         = var.manage_route53
+  cloudfront_domain_name = module.frontend.cloudfront_domain_name
+  alb_dns_name           = module.ecs.alb_dns_name
+  alb_zone_id            = module.ecs.alb_zone_id
+}
+
+# ------------------------------------------------------------------------------
+# 8. CI/CD Identity Federation (GitHub Actions OIDC Least-Privilege Roles)
 # ------------------------------------------------------------------------------
 module "oidc" {
   source = "./modules/oidc"

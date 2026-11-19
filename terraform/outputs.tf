@@ -3,6 +3,29 @@
 # ==============================================================================
 
 # ------------------------------------------------------------------------------
+# Custom Domain & SSL/TLS
+# ------------------------------------------------------------------------------
+output "custom_frontend_url" {
+  description = "Production URL for the React Frontend Portal"
+  value       = var.enable_custom_domain ? "https://${var.domain_name}" : "https://${module.frontend.cloudfront_domain_name}"
+}
+
+output "custom_backend_api_url" {
+  description = "Production URL for the Spring Boot Backend API"
+  value       = var.enable_custom_domain ? "https://${var.api_subdomain}" : "http://${module.ecs.alb_dns_name}"
+}
+
+output "acm_certificate_arn" {
+  description = "ARN of the public ACM TLS certificate"
+  value       = var.enable_custom_domain ? module.acm[0].certificate_arn : null
+}
+
+output "dns_validation_records" {
+  description = "CNAME records required for DNS validation if your domain is managed outside Route 53"
+  value       = var.enable_custom_domain ? module.acm[0].dns_validation_records : null
+}
+
+# ------------------------------------------------------------------------------
 # Networking
 # ------------------------------------------------------------------------------
 output "vpc_id" {

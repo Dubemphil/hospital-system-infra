@@ -13,3 +13,4 @@ variable "project_name" {
   description = "Project name prefix"
   default     = "hospital-system"
 }
+
