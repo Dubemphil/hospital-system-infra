@@ -46,6 +46,11 @@ output "frontend_cdn_domain" {
   value       = module.frontend.cloudfront_domain_name
 }
 
+output "cloudfront_distribution_id" {
+  description = "ID of the CloudFront distribution for cache invalidation"
+  value       = module.frontend.cloudfront_distribution_id
+}
+
 output "frontend_s3_bucket" {
   description = "S3 bucket name where static React assets are deployed"
   value       = module.frontend.s3_bucket_id

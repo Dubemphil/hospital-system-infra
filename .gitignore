@@ -13,7 +13,8 @@ crash.*.log
 *.tfvars
 *.tfvars.json
 
-# Keep example tfvars
+# Keep track of project environment configuration
+!terraform/terraform.tfvars
 !terraform.tfvars.example
 
 # Ignore override files
