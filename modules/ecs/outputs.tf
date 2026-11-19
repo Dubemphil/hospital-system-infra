@@ -1,0 +1,49 @@
+output "cluster_id" {
+  description = "The ID of the ECS cluster"
+  value       = aws_ecs_cluster.main.id
+}
+
+output "cluster_name" {
+  description = "The name of the ECS cluster"
+  value       = aws_ecs_cluster.main.name
+}
+
+output "service_name" {
+  description = "The name of the ECS service"
+  value       = aws_ecs_service.backend.name
+}
+
+output "service_id" {
+  description = "The ID of the ECS service"
+  value       = aws_ecs_service.backend.id
+}
+
+output "alb_dns_name" {
+  description = "The public DNS name of the Application Load Balancer"
+  value       = aws_lb.main.dns_name
+}
+
+output "alb_arn" {
+  description = "The ARN of the Application Load Balancer"
+  value       = aws_lb.main.arn
+}
+
+output "alb_zone_id" {
+  description = "The Canonical Hosted Zone ID of the Application Load Balancer"
+  value       = aws_lb.main.zone_id
+}
+
+output "target_group_arn" {
+  description = "The ARN of the ALB target group"
+  value       = aws_lb_target_group.backend.arn
+}
+
+output "execution_role_arn" {
+  description = "The ARN of the ECS task execution role"
+  value       = aws_iam_role.execution.arn
+}
+
+output "task_role_arn" {
+  description = "The ARN of the ECS task role"
+  value       = aws_iam_role.task.arn
+}
