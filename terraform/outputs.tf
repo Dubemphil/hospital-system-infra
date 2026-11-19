@@ -103,11 +103,6 @@ output "db_credentials_secret_name" {
   value       = module.security.db_secret_name
 }
 
-output "github_oidc_infra_role_arn" {
-  description = "IAM Role ARN for Terraform Infrastructure GitHub Actions CI/CD pipeline"
-  value       = module.oidc.infra_deployer_role_arn
-}
-
 output "github_oidc_backend_role_arn" {
   description = "IAM Role ARN for Backend GitHub Actions CI/CD pipeline"
   value       = module.oidc.backend_deployer_role_arn

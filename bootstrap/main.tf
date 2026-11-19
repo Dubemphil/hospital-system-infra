@@ -1,6 +1,6 @@
 # ==============================================================================
-# Bootstrap Module - S3 Remote State Bucket & DynamoDB Lock Table
-# Production Foundation for Team CI/CD & State Integrity
+# Bootstrap Module - S3 Remote State, DynamoDB Locking & GitHub OIDC IAM Role
+# One-time CLI Execution to Enable 100% Keyless Pipeline Automation
 # ==============================================================================
 
 data "aws_caller_identity" "current" {}
@@ -10,18 +10,14 @@ data "aws_caller_identity" "current" {}
 # ------------------------------------------------------------------------------
 resource "aws_s3_bucket" "terraform_state" {
   bucket        = "${var.project_name}-tfstate-${data.aws_caller_identity.current.account_id}"
-  force_destroy = false # Prevent accidental deletion of state in production
-
-  lifecycle {
-    prevent_destroy = false # Set to true in permanent enterprise prod
-  }
+  force_destroy = false
 
   tags = {
-    Name = "${var.project_name}-tfstate"
+    Name        = "${var.project_name}-tfstate"
+    Environment = var.environment
   }
 }
 
-# Versioning: Allows state history recovery and rollback if state gets corrupted
 resource "aws_s3_bucket_versioning" "state" {
   bucket = aws_s3_bucket.terraform_state.id
   versioning_configuration {
@@ -29,7 +25,6 @@ resource "aws_s3_bucket_versioning" "state" {
   }
 }
 
-# Encryption: Protect sensitive state data at rest
 resource "aws_s3_bucket_server_side_encryption_configuration" "state" {
   bucket = aws_s3_bucket.terraform_state.id
 
@@ -40,7 +35,6 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "state" {
   }
 }
 
-# Public Access Block: 100% private state storage
 resource "aws_s3_bucket_public_access_block" "state" {
   bucket = aws_s3_bucket.terraform_state.id
 
@@ -52,11 +46,10 @@ resource "aws_s3_bucket_public_access_block" "state" {
 
 # ------------------------------------------------------------------------------
 # DynamoDB Table for Distributed State Locking
-# Prevents concurrent applies from corrupting the state file
 # ------------------------------------------------------------------------------
 resource "aws_dynamodb_table" "terraform_locks" {
   name         = "${var.project_name}-terraform-locks"
-  billing_mode = "PAY_PER_REQUEST" # Zero idle cost; pay only per lock request
+  billing_mode = "PAY_PER_REQUEST"
   hash_key     = "LockID"
 
   attribute {
@@ -65,7 +58,84 @@ resource "aws_dynamodb_table" "terraform_locks" {
   }
 
   tags = {
-    Name = "${var.project_name}-terraform-locks"
+    Name        = "${var.project_name}-terraform-locks"
+    Environment = var.environment
   }
 }
 
+# ------------------------------------------------------------------------------
+# GitHub Actions OpenID Connect (OIDC) Identity Provider
+# Enables keyless authentication from GitHub Actions into AWS
+# ------------------------------------------------------------------------------
+resource "aws_iam_openid_connect_provider" "github" {
+  url             = "https://token.actions.githubusercontent.com"
+  client_id_list  = ["sts.amazonaws.com"]
+  thumbprint_list = ["6938fd4d98bab03faadb97b34396831e3780aea1", "1c58a3a8518e8759bf075b76b750d4f8d264fcd9"]
+
+  tags = {
+    Name = "${var.project_name}-github-oidc-provider"
+  }
+}
+
+# ------------------------------------------------------------------------------
+# IAM Role: Infrastructure CI/CD Pipeline (Terraform Plan & Apply)
+# This role allows the pipeline to deploy the rest of the infrastructure keylessly!
+# ------------------------------------------------------------------------------
+resource "aws_iam_role" "infra_deployer" {
+  name = "${var.project_name}-${var.environment}-infra-deployer-role"
+
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Effect = "Allow"
+        Principal = {
+          Federated = aws_iam_openid_connect_provider.github.arn
+        }
+        Action = "sts:AssumeRoleWithWebIdentity"
+        Condition = {
+          StringEquals = {
+            "token.actions.githubusercontent.com:aud" = "sts.amazonaws.com"
+          }
+          StringLike = {
+            "token.actions.githubusercontent.com:sub" = [
+              "repo:${var.github_org}/${var.github_infra_repo}:*",
+              "repo:${var.github_org}/hospital_terraform:*",
+              "repo:${var.github_org}/hospital-system-infra:*"
+            ]
+          }
+        }
+      }
+    ]
+  })
+
+  tags = {
+    Name        = "${var.project_name}-${var.environment}-infra-deployer-role"
+    Environment = var.environment
+  }
+}
+
+# PowerUser permissions to deploy VPC, RDS, ECS, CloudFront, S3, KMS
+resource "aws_iam_role_policy_attachment" "infra_deployer_poweruser" {
+  role       = aws_iam_role.infra_deployer.name
+  policy_arn = "arn:aws:iam::aws:policy/PowerUserAccess"
+}
+
+# IAM permissions to manage application roles and policies
+resource "aws_iam_role_policy" "infra_deployer_iam" {
+  name = "${var.project_name}-${var.environment}-infra-iam-policy"
+  role = aws_iam_role.infra_deployer.id
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Effect = "Allow"
+        Action = [
+          "iam:*"
+        ]
+        Resource = "*"
+      }
+    ]
+  })
+}

@@ -1,76 +1,12 @@
 # ==============================================================================
-# OIDC Module - GitHub Actions OpenID Connect (OIDC) Identity Federation
-# Zero Long-Lived AWS Access Keys - Strict Least Privilege per Repository
+# OIDC Module - Application GitHub Actions IAM Roles
+# Backend (ECR/ECS) and Frontend (S3/CloudFront) Keyless STS Federation
 # ==============================================================================
 
-# ------------------------------------------------------------------------------
-# GitHub Actions OIDC Provider
-# ------------------------------------------------------------------------------
-resource "aws_iam_openid_connect_provider" "github" {
-  url             = "https://token.actions.githubusercontent.com"
-  client_id_list  = ["sts.amazonaws.com"]
-  thumbprint_list = ["6938fd4d98bab03faadb97b34396831e3780aea1", "1c58a3a8518e8759bf075b76b750d4f8d264fcd9"]
+data "aws_caller_identity" "current" {}
 
-  tags = merge(var.tags, {
-    Name = "${var.project_name}-github-oidc-provider"
-  })
-}
-
-# ------------------------------------------------------------------------------
-# IAM Role: Infrastructure CI/CD Pipeline (Terraform Plan & Apply)
-# ------------------------------------------------------------------------------
-resource "aws_iam_role" "infra_deployer" {
-  name = "${var.project_name}-${var.environment}-infra-deployer-role"
-
-  assume_role_policy = jsonencode({
-    Version = "2012-10-17"
-    Statement = [
-      {
-        Effect = "Allow"
-        Principal = {
-          Federated = aws_iam_openid_connect_provider.github.arn
-        }
-        Action = "sts:AssumeRoleWithWebIdentity"
-        Condition = {
-          StringEquals = {
-            "token.actions.githubusercontent.com:aud" = "sts.amazonaws.com"
-          }
-          StringLike = {
-            "token.actions.githubusercontent.com:sub" = [
-              "repo:${var.github_org}/${var.github_infra_repo}:*",
-              "repo:${var.github_org}/hospital-system-infra:*",
-              "repo:${var.github_org}/hospital_terraform:*"
-            ]
-          }
-        }
-      }
-    ]
-  })
-
-  tags = var.tags
-}
-
-resource "aws_iam_role_policy_attachment" "infra_deployer_poweruser" {
-  role       = aws_iam_role.infra_deployer.name
-  policy_arn = "arn:aws:iam::aws:policy/PowerUserAccess"
-}
-
-resource "aws_iam_role_policy" "infra_deployer_iam" {
-  name = "${var.project_name}-${var.environment}-infra-iam-policy"
-  role = aws_iam_role.infra_deployer.id
-
-  policy = jsonencode({
-    Version = "2012-10-17"
-    Statement = [
-      {
-        Effect = "Allow"
-        Action = [
-          "iam:*"
-        ]
-        Resource = "*"
-      }
-    ]
-  })
+locals {
+  github_oidc_provider_arn = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:oidc-provider/token.actions.githubusercontent.com"
 }
 
 # ------------------------------------------------------------------------------
@@ -85,7 +21,7 @@ resource "aws_iam_role" "backend_deployer" {
       {
         Effect = "Allow"
         Principal = {
-          Federated = aws_iam_openid_connect_provider.github.arn
+          Federated = local.github_oidc_provider_arn
         }
         Action = "sts:AssumeRoleWithWebIdentity"
         Condition = {
@@ -180,7 +116,7 @@ resource "aws_iam_role" "frontend_deployer" {
       {
         Effect = "Allow"
         Principal = {
-          Federated = aws_iam_openid_connect_provider.github.arn
+          Federated = local.github_oidc_provider_arn
         }
         Action = "sts:AssumeRoleWithWebIdentity"
         Condition = {
