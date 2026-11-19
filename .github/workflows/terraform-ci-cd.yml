@@ -1,4 +1,4 @@
-name: Hospital System - Infrastructure CI/CD (Multi-Environment)
+name: Hospital System - Infrastructure CI/CD (Dev to Prod Promotion)
 
 on:
   push:
@@ -11,8 +11,8 @@ on:
       - master
   workflow_dispatch:
     inputs:
-      environment:
-        description: 'Target AWS Environment to Deploy'
+      target_env:
+        description: 'Target Environment'
         required: true
         default: 'dev'
         type: choice
@@ -20,7 +20,7 @@ on:
           - dev
           - prod
       action:
-        description: 'Terraform Action to execute'
+        description: 'Action'
         required: true
         default: 'apply'
         type: choice
@@ -51,7 +51,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      # 1. Gitleaks Secret Scanner (Direct CLI execution)
+      # 1. Gitleaks Secret Scanner
       - name: Run Gitleaks Secret Scanner
         run: |
           curl -sSL https://github.com/gitleaks/gitleaks/releases/download/v8.24.3/gitleaks_8.24.3_linux_x64.tar.gz | sudo tar -xz -C /usr/local/bin gitleaks
@@ -68,13 +68,53 @@ jobs:
         run: terraform fmt -check -recursive ./terraform
 
   # ============================================================================
-  # Stage 2: DEV Environment (Plan & Deploy)
+  # Stage 2: Pull Request Validation (Plan Preview)
   # ============================================================================
-  dev-environment:
-    name: DEV Environment (Deploy)
+  pr-plan-preview:
+    name: PR Plan Preview (Dev & Prod)
     needs: code-quality-and-security
-    if: github.event_name == 'push' || github.event_name == 'pull_request' || (github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'dev')
+    if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: ${{ env.TF_VERSION }}
+
+      - name: Configure AWS Credentials via GitHub OIDC
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+          audience: sts.amazonaws.com
+
+      - name: Dev Plan Preview
+        run: |
+          cd terraform/environments/dev
+          terraform init
+          terraform validate
+          terraform plan -no-color
+
+      - name: Prod Plan Preview
+        run: |
+          cd terraform/environments/prod
+          terraform init
+          terraform validate
+          terraform plan -no-color
+
+  # ============================================================================
+  # Stage 3: Automated Deploy to DEV Environment
+  # ============================================================================
+  deploy-dev:
+    name: Deploy to DEV Environment
+    needs: code-quality-and-security
+    if: (github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')) || (github.event_name == 'workflow_dispatch' && github.event.inputs.target_env == 'dev')
+    runs-on: ubuntu-latest
+    environment:
+      name: development
     defaults:
       run:
         working-directory: ./terraform/environments/dev
@@ -98,27 +138,25 @@ jobs:
       - name: Terraform Init (Dev S3 Backend)
         run: terraform init
 
-      - name: Terraform Validate
-        run: terraform validate
-
-      - name: Terraform Plan
-        id: plan
+      - name: Terraform Plan (Dev)
         run: terraform plan -no-color -out=tfplan
 
-      - name: Terraform Apply (Auto on Main Push or Manual Apply)
-        if: (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master') && (github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && github.event.inputs.action == 'apply'))
+      - name: Terraform Apply (Dev)
         run: |
-          echo "Deploying Hospital System Dev Infrastructure to AWS..."
+          echo "Applying verified Terraform plan to Dev AWS Environment..."
           terraform apply -auto-approve tfplan
 
   # ============================================================================
-  # Stage 3: PROD Environment (Plan on PR / Manual Apply via Dispatch)
+  # Stage 4: Promotion to PROD Environment (Guarded by GitHub Environment Approval)
   # ============================================================================
-  prod-environment:
-    name: PROD Environment (Deploy / Validate)
-    needs: code-quality-and-security
-    if: (github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'prod') || github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+  deploy-prod:
+    name: Promote to PRODUCTION Environment
+    needs: deploy-dev
+    if: (github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')) || (github.event_name == 'workflow_dispatch' && github.event.inputs.target_env == 'prod')
     runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://devopsstandard.name.ng
     defaults:
       run:
         working-directory: ./terraform/environments/prod
@@ -142,14 +180,10 @@ jobs:
       - name: Terraform Init (Prod S3 Backend)
         run: terraform init
 
-      - name: Terraform Validate
-        run: terraform validate
-
-      - name: Terraform Plan
+      - name: Terraform Plan (Prod)
         run: terraform plan -no-color -out=tfplan
 
-      - name: Terraform Apply (Manual Trigger Only for Production Safety)
-        if: github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'prod' && github.event.inputs.action == 'apply'
+      - name: Terraform Apply (Prod)
         run: |
-          echo "Deploying Hospital System Production Infrastructure to AWS..."
+          echo "Promoting verified architecture to Production AWS Environment..."
           terraform apply -auto-approve tfplan

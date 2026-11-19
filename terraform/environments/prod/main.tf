@@ -138,3 +138,4 @@ module "oidc" {
   frontend_bucket_arn         = module.frontend.s3_bucket_arn
   cloudfront_distribution_arn = module.frontend.cloudfront_distribution_arn
 }
+
