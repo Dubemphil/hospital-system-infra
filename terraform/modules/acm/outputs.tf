@@ -18,3 +18,4 @@ output "dns_validation_records" {
     }
   }
 }
+
