@@ -107,21 +107,24 @@ This infrastructure is engineered to satisfy the rigorous technical safeguards m
 hospital_terraform/
 ├── .github/workflows/        # Automated GitHub Actions CI/CD (Plan & Apply via OIDC)
 │   └── terraform-ci-cd.yml
-├── main.tf                    # Root orchestration wiring all submodules
-├── variables.tf               # Global input variables with validation
-├── outputs.tf                 # Global outputs (ALB DNS, CloudFront, ECR, RDS, OIDC)
-├── versions.tf                # AWS provider (~> 5.0) and Terraform (>= 1.5.0)
-├── terraform.tfvars.example   # Example staging/production variable overrides
 ├── .gitignore                 # Production ignore protecting .terraform & *.tfvars
+├── README.md                  # Comprehensive documentation, diagrams & HIPAA matrix
 │
-└── modules/
-    ├── vpc/                   # 3-tier VPC, subnets across 2 AZs, NAT GW, Flow Logs
-    ├── security/              # KMS CMK, Secrets Manager, chained Security Groups
-    ├── rds/                   # Amazon RDS MySQL 8.0, Subnet Group, Parameter Group
-    ├── ecr/                   # ECR with scan-on-push, lifecycle policy, KMS encryption
-    ├── ecs/                   # ECS Fargate Cluster, Task Def, Service, ALB, Auto-scaling
-    ├── frontend/              # S3 private bucket, CloudFront CDN with modern OAC
-    └── oidc/                  # GitHub Actions OIDC Provider & Least-Privilege IAM Roles
+└── terraform/                 # All Terraform HCL Configurations & Modules
+    ├── main.tf                # Root module orchestration wiring all submodules
+    ├── variables.tf           # Global input variables with validation
+    ├── outputs.tf             # Global outputs (ALB DNS, CloudFront, ECR, RDS, OIDC)
+    ├── versions.tf            # AWS provider (~> 5.0) and Terraform (>= 1.5.0)
+    ├── terraform.tfvars.example # Example staging/production variable overrides
+    │
+    └── modules/
+        ├── vpc/               # 3-tier VPC, subnets across 2 AZs, NAT GW, Flow Logs
+        ├── security/          # KMS CMK, Secrets Manager, chained Security Groups
+        ├── rds/               # Amazon RDS MySQL 8.0, Subnet Group, Parameter Group
+        ├── ecr/               # ECR with scan-on-push, lifecycle policy, KMS encryption
+        ├── ecs/               # ECS Fargate Cluster, Task Def, Service, ALB, Auto-scaling
+        ├── frontend/          # S3 private bucket, CloudFront CDN with modern OAC
+        └── oidc/              # GitHub Actions OIDC Provider & Least-Privilege IAM Roles
 ```
 
 ---
@@ -135,8 +138,8 @@ hospital_terraform/
 
 ### 1. Clone & Configure
 ```bash
-git clone https://github.com/Dubemphil/hospital-system-infra.git
-cd hospital-system-infra
+git clone https://github.com/Dubemphil/hospital_terraform.git
+cd hospital_terraform/terraform
 
 # Copy example variables
 cp terraform.tfvars.example terraform.tfvars
