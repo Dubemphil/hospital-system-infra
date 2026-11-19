@@ -1,6 +1,5 @@
 # ==============================================================================
-# Terraform & Provider Versions - Enterprise AWS Infrastructure
-# Horizon Health Partners / Hospital Management System
+# Terraform & Provider Versions - Production Environment
 # ==============================================================================
 
 terraform {
@@ -16,15 +15,6 @@ terraform {
       version = "~> 3.5"
     }
   }
-
-  # Production note: In multi-engineer teams, configure an S3 backend here:
-  # backend "s3" {
-  #   bucket         = "hospital-system-terraform-state-prod"
-  #   key            = "environments/production/terraform.tfstate"
-  #   region         = "us-east-1"
-  #   dynamodb_table = "hospital-system-terraform-locks"
-  #   encrypt        = true
-  # }
 }
 
 provider "aws" {
@@ -40,4 +30,3 @@ provider "aws" {
     }
   }
 }
-

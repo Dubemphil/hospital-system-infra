@@ -1,13 +1,13 @@
 # ==============================================================================
-# Main Orchestration - Hospital Management System (AWS Infrastructure)
-# Modular Architecture | Custom Domain (devopsstandard.name.ng) | HIPAA Compliant
+# Dev Environment - Hospital Management System (AWS Infrastructure)
+# Modular Architecture | Cost-Optimized | Isolated S3 Remote State
 # ==============================================================================
 
 # ------------------------------------------------------------------------------
 # 1. Security Foundation (KMS, Security Groups, Secrets Manager)
 # ------------------------------------------------------------------------------
 module "security" {
-  source = "./modules/security"
+  source = "../../modules/security"
 
   environment    = var.environment
   project_name   = var.project_name
@@ -21,7 +21,7 @@ module "security" {
 # 2. 3-Tier Enterprise Networking (VPC, Subnets, NAT GW, Flow Logs)
 # ------------------------------------------------------------------------------
 module "vpc" {
-  source = "./modules/vpc"
+  source = "../../modules/vpc"
 
   environment        = var.environment
   project_name       = var.project_name
@@ -31,10 +31,10 @@ module "vpc" {
 }
 
 # ------------------------------------------------------------------------------
-# 3. Relational Database Tier (Amazon RDS MySQL 8.0 Multi-AZ)
+# 3. Relational Database Tier (Amazon RDS MySQL 8.0)
 # ------------------------------------------------------------------------------
 module "rds" {
-  source = "./modules/rds"
+  source = "../../modules/rds"
 
   environment           = var.environment
   project_name          = var.project_name
@@ -54,7 +54,7 @@ module "rds" {
 # 4. Container Registry (Amazon ECR)
 # ------------------------------------------------------------------------------
 module "ecr" {
-  source = "./modules/ecr"
+  source = "../../modules/ecr"
 
   environment  = var.environment
   project_name = var.project_name
@@ -65,7 +65,7 @@ module "ecr" {
 # 5. Compute Tier (AWS ECS Fargate Cluster, Task Definition, Service, ALB)
 # ------------------------------------------------------------------------------
 module "ecs" {
-  source = "./modules/ecs"
+  source = "../../modules/ecs"
 
   environment           = var.environment
   project_name          = var.project_name
@@ -91,7 +91,7 @@ module "ecs" {
 # 6. Frontend Web Tier (Amazon S3 + CloudFront CDN + OAC)
 # ------------------------------------------------------------------------------
 module "frontend" {
-  source = "./modules/frontend"
+  source = "../../modules/frontend"
 
   environment         = var.environment
   project_name        = var.project_name
@@ -106,7 +106,7 @@ module "frontend" {
 # ------------------------------------------------------------------------------
 module "acm" {
   count  = var.enable_custom_domain ? 1 : 0
-  source = "./modules/acm"
+  source = "../../modules/acm"
 
   environment            = var.environment
   project_name           = var.project_name
@@ -122,7 +122,7 @@ module "acm" {
 # 8. CI/CD Identity Federation (GitHub Actions OIDC Least-Privilege Roles)
 # ------------------------------------------------------------------------------
 module "oidc" {
-  source = "./modules/oidc"
+  source = "../../modules/oidc"
 
   environment                 = var.environment
   project_name                = var.project_name

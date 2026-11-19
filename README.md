@@ -104,26 +104,42 @@ This infrastructure is engineered to satisfy the rigorous technical safeguards m
 ## 📁 Repository Structure
 
 ```
-hospital_terraform/
-├── .github/workflows/        # Automated GitHub Actions CI/CD (Plan & Apply via OIDC)
+hospital-system-infra/
+├── .github/workflows/        # Automated GitHub Actions CI/CD (Multi-Environment OIDC)
 │   └── terraform-ci-cd.yml
-├── .gitignore                 # Production ignore protecting .terraform & *.tfvars
+├── .gitignore                 # Production ignore protecting .terraform & local state
 ├── README.md                  # Comprehensive documentation, diagrams & HIPAA matrix
 │
-└── terraform/                 # All Terraform HCL Configurations & Modules
-    ├── main.tf                # Root module orchestration wiring all submodules
-    ├── variables.tf           # Global input variables with validation
-    ├── outputs.tf             # Global outputs (ALB DNS, CloudFront, ECR, RDS, OIDC)
-    ├── versions.tf            # AWS provider (~> 5.0) and Terraform (>= 1.5.0)
-    ├── terraform.tfvars.example # Example staging/production variable overrides
+├── bootstrap/                 # One-time CLI Bootstrap for S3 State Bucket & GitHub OIDC Provider
+│   ├── main.tf
+│   ├── outputs.tf
+│   └── variables.tf
+│
+└── terraform/                 # All Terraform HCL Configurations & Environments
+    ├── environments/
+    │   ├── dev/               # Cost-Optimized Dev (Single-AZ, db.t4g.micro, 1 task)
+    │   │   ├── main.tf
+    │   │   ├── variables.tf
+    │   │   ├── outputs.tf
+    │   │   ├── versions.tf
+    │   │   ├── backend.tf     # State key: dev/terraform.tfstate
+    │   │   └── terraform.tfvars
+    │   └── prod/              # High-Availability Prod (Multi-AZ, db.t4g.small, 2 tasks, ACM SSL)
+    │       ├── main.tf
+    │       ├── variables.tf
+    │       ├── outputs.tf
+    │       ├── versions.tf
+    │       ├── backend.tf     # State key: prod/terraform.tfstate
+    │       └── terraform.tfvars
     │
-    └── modules/
+    └── modules/               # Shared Reusable Child Modules
         ├── vpc/               # 3-tier VPC, subnets across 2 AZs, NAT GW, Flow Logs
         ├── security/          # KMS CMK, Secrets Manager, chained Security Groups
         ├── rds/               # Amazon RDS MySQL 8.0, Subnet Group, Parameter Group
         ├── ecr/               # ECR with scan-on-push, lifecycle policy, KMS encryption
         ├── ecs/               # ECS Fargate Cluster, Task Def, Service, ALB, Auto-scaling
         ├── frontend/          # S3 private bucket, CloudFront CDN with modern OAC
+        ├── acm/               # ACM TLS Certificate & Route 53 validation
         └── oidc/              # GitHub Actions OIDC Provider & Least-Privilege IAM Roles
 ```
 

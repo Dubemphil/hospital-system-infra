@@ -1,6 +1,6 @@
 # ==============================================================================
 # Development Environment Variables: terraform.tfvars
-# Target: AWS dev deployment
+# Target: AWS dev deployment (Cost-Optimized / Single-AZ)
 # ==============================================================================
 
 aws_region   = "us-east-1"
@@ -8,12 +8,10 @@ environment  = "dev"
 project_name = "hospital-system"
 
 # Custom Domain & SSL/TLS Configuration
-# Set to false for the initial pipeline run so all base infrastructure (VPC, RDS, ECS, S3, CloudFront)
-# creates cleanly without waiting for external DNS validation. Once deployed, set to true to issue ACM TLS cert.
 enable_custom_domain = false
 domain_name          = "devopsstandard.name.ng"
 api_subdomain        = "api.devopsstandard.name.ng"
-manage_route53       = false # Set to true if Route 53 manages the hosted zone
+manage_route53       = false
 
 # Networking
 vpc_cidr           = "10.0.0.0/16"
@@ -38,4 +36,3 @@ github_org           = "Dubemphil"
 github_backend_repo  = "hospital-system-backend"
 github_frontend_repo = "hospital-system-frontend"
 github_infra_repo    = "hospital-system-infra"
-

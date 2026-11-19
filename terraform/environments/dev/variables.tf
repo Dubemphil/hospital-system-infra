@@ -1,5 +1,5 @@
 # ==============================================================================
-# Variables - Hospital System Enterprise AWS Infrastructure
+# Variables - Dev Environment (Hospital System)
 # ==============================================================================
 
 variable "aws_region" {
@@ -10,13 +10,8 @@ variable "aws_region" {
 
 variable "environment" {
   type        = string
-  description = "Target deployment environment (staging, production)"
-  default     = "staging"
-
-  validation {
-    condition     = contains(["dev", "staging", "production"], var.environment)
-    error_message = "Environment must be one of: dev, staging, production."
-  }
+  description = "Target deployment environment"
+  default     = "dev"
 }
 
 variable "project_name" {
@@ -31,7 +26,7 @@ variable "project_name" {
 variable "enable_custom_domain" {
   type        = bool
   description = "Whether to provision ACM certificate and configure custom domain aliases"
-  default     = true
+  default     = false
 }
 
 variable "domain_name" {
@@ -84,7 +79,7 @@ variable "db_username" {
 
 variable "db_instance_class" {
   type        = string
-  description = "RDS instance class (e.g. db.t4g.micro for dev/staging, db.m6i.large for prod)"
+  description = "RDS instance class (e.g. db.t4g.micro for dev, db.m6i.large for prod)"
   default     = "db.t4g.micro"
 }
 
@@ -97,7 +92,7 @@ variable "db_multi_az" {
 variable "db_backup_retention_days" {
   type        = number
   description = "Retention period for automated backups (days)"
-  default     = 7
+  default     = 1
 }
 
 variable "db_skip_final_snapshot" {
@@ -130,7 +125,7 @@ variable "ecs_task_memory" {
 variable "ecs_desired_count" {
   type        = number
   description = "Number of running backend tasks in the ECS service"
-  default     = 2
+  default     = 1
 }
 
 # ------------------------------------------------------------------------------
