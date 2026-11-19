@@ -14,12 +14,12 @@ output "github_oidc_provider_arn" {
 }
 
 output "github_oidc_infra_role_arn" {
-  description = "IAM Role ARN to paste into GitHub Secrets as AWS_ROLE_ARN for hospital_terraform"
+  description = "IAM Role ARN to paste into GitHub Secrets as AWS_ROLE_ARN for hospital-system-infra"
   value       = aws_iam_role.infra_deployer.arn
 }
 
 output "backend_config_instruction" {
-  description = "Backend configuration block to paste into hospital_terraform/terraform/backend.tf"
+  description = "Backend configuration block to paste into terraform/backend.tf"
   value       = <<-EOT
     terraform {
       backend "s3" {

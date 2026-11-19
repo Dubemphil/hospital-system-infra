@@ -37,5 +37,5 @@ ecs_desired_count      = 1    # 1 task for dev environment
 github_org           = "Dubemphil"
 github_backend_repo  = "hospital-system-backend"
 github_frontend_repo = "hospital-system-frontend"
-github_infra_repo    = "hospital_terraform"
+github_infra_repo    = "hospital-system-infra"
 

@@ -157,5 +157,5 @@ variable "github_frontend_repo" {
 variable "github_infra_repo" {
   type        = string
   description = "Repository name for the Terraform infrastructure"
-  default     = "hospital_terraform"
+  default     = "hospital-system-infra"
 }
