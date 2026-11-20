@@ -31,7 +31,9 @@ resource "aws_iam_role" "backend_deployer" {
           StringLike = {
             "token.actions.githubusercontent.com:sub" = [
               "repo:${var.github_org}/${var.github_backend_repo}:*",
-              "repo:${var.github_org}/hospital_backend:*"
+              "repo:${lower(var.github_org)}/${var.github_backend_repo}:*",
+              "repo:*:hospital-system-backend:*",
+              "repo:*:hospital_backend:*"
             ]
           }
         }
@@ -126,7 +128,9 @@ resource "aws_iam_role" "frontend_deployer" {
           StringLike = {
             "token.actions.githubusercontent.com:sub" = [
               "repo:${var.github_org}/${var.github_frontend_repo}:*",
-              "repo:${var.github_org}/hospital_frontend:*"
+              "repo:${lower(var.github_org)}/${var.github_frontend_repo}:*",
+              "repo:*:hospital-system-frontend:*",
+              "repo:*:hospital_frontend:*"
             ]
           }
         }
