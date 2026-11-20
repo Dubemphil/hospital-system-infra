@@ -1,40 +1,38 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1780 1020" width="100%" height="100%" style="background:#ffffff; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1740 1000" width="100%" height="100%" style="background:#ffffff; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
   <defs>
     <!-- Drop Shadow Filters -->
     <filter id="softShadow" x="-5%" y="-5%" width="110%" height="110%" filterUnits="userSpaceOnUse">
       <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#000000" flood-opacity="0.06"/>
     </filter>
-    <filter id="badgeShadow" x="-10%" y="-10%" width="120%" height="120%" filterUnits="userSpaceOnUse">
-      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000000" flood-opacity="0.08"/>
+    <filter id="cardShadow" x="-8%" y="-8%" width="116%" height="116%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.05"/>
     </filter>
 
     <!-- Arrow Markers -->
     <marker id="arrow-black" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#1e293b"/>
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#0f172a"/>
     </marker>
     <marker id="arrow-blue" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
       <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#0284c7"/>
     </marker>
+    <marker id="arrow-purple" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#7c3aed"/>
+    </marker>
     <marker id="arrow-orange" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
       <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#ea580c"/>
     </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#16a34a"/>
+    </marker>
 
-    <!-- ICONS AND LOGOS DEFINITIONS -->
+    <!-- ICONS & LOGOS DEFINITIONS -->
 
     <!-- GitHub Octocat -->
     <g id="icon-github">
-      <path d="M16 0C7.16 0 0 7.16 0 16c0 7.08 4.58 13.06 10.94 15.18.8.15 1.09-.35 1.09-.77 0-.38-.01-1.39-.02-2.73-4.45.97-5.39-2.15-5.39-2.15-.73-1.85-1.78-2.35-1.78-2.35-1.45-.99.11-.97.11-.97 1.61.11 2.45 1.65 2.45 1.65 1.43 2.44 3.74 1.74 4.66 1.33.14-1.04.56-1.74 1.02-2.14-3.55-.4-7.29-1.78-7.29-7.91 0-1.75.63-3.18 1.65-4.3-.17-.4-.71-2.03.16-4.24 0 0 1.35-.43 4.41 1.64 1.28-.36 2.65-.54 4.02-.54 1.37 0 2.74.18 4.02.54 3.06-2.07 4.41-1.64 4.41-1.64.87 2.21.33 3.84.16 4.24 1.03 1.12 1.65 2.55 1.65 4.3 0 6.15-3.75 7.5-7.32 7.9.58.5 1.09 1.48 1.09 2.99 0 2.16-.02 3.9-.02 4.43 0 .43.29.93 1.1.77C27.42 29.05 32 23.07 32 16 32 7.16 24.84 0 16 0z" fill="#181717"/>
+      <path d="M16 0C7.16 0 0 7.16 0 16c0 7.08 4.58 13.06 10.94 15.18.8.15 1.09-.35 1.09-.77 0-.38-.01-1.39-.02-2.73-4.45.97-5.39-2.15-5.39-2.15-.73-1.85-1.78-2.35-1.78-2.35-1.45-.99.11-.97.11-.97 1.61.11 2.45 1.65 2.45 1.65 1.43 2.44 3.74 1.74 4.66 1.33.14-1.04.56-1.74 1.02-2.14-3.55-.4-7.29-1.78-7.29-7.91 0-1.75.63-3.18 1.65-4.3-.17-.4-.71-2.03.16-4.24 0 0 1.35-.43 4.41 1.64 1.28-.36 2.65-.54 4.02-.54 1.37 0 2.74.18 4.02.54 3.06-2.07 4.41-1.64 4.41-1.64.87 2.21.33 3.84.16 4.24 1.03 1.12 1.65 2.55 1.65 4.3 0 6.15-3.75 7.5-7.32 7.9.58.5 1.09 1.48 1.09 2.99 0 2.16-.02 3.9-.02 4.43 0 .43.29.93 1.1.77C27.42 29.05 32 23.07 32 16 32 7.16 24.84 0 16 0z" fill="#0f172a"/>
     </g>
 
-    <!-- Slack Icon -->
-    <g id="icon-slack">
-      <path d="M6 15a3 3 0 0 1-3-3 3 3 0 0 1 3-3h3v3a3 3 0 0 1-3 3zm7 0a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3 3 3 0 0 1 3 3v6a3 3 0 0 1-3 3z" fill="#36C5F0"/>
-      <path d="M15 6a3 3 0 0 1-3-3 3 3 0 0 1 3-3h3v3a3 3 0 0 1-3 3zm0 7a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3 3 3 0 0 1 3 3v4a3 3 0 0 1-3 2z" fill="#2EB67D" transform="rotate(90 15 15)"/>
-      <path d="M24 15a3 3 0 0 1-3-3 3 3 0 0 1 3-3h3v3a3 3 0 0 1-3 3zm-7 0a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3 3 3 0 0 1 3 3v6a3 3 0 0 1-3 3z" fill="#ECB22E" transform="rotate(180 15 15)"/>
-      <path d="M15 24a3 3 0 0 1-3-3 3 3 0 0 1 3-3h3v3a3 3 0 0 1-3 3zm0-7a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3 3 3 0 0 1 3 3v6a3 3 0 0 1-3 3z" fill="#E01E5A" transform="rotate(270 15 15)"/>
-    </g>
-
-    <!-- AWS Logo (Smile + AWS) -->
+    <!-- AWS Logo (Official Amazon Web Services smile) -->
     <g id="icon-aws">
       <path d="M12.5 19.5c-4.5 0-7.8-1.5-10.2-4.1-.4-.4-.3-1 .2-1.3.4-.3 1-.2 1.4.2 2 2.2 4.8 3.4 8.6 3.4 4.5 0 8.8-1.8 12.2-5 .4-.4 1-.4 1.4 0 .4.4.3 1-.1 1.4-3.8 3.5-8.6 5.4-13.5 5.4z" fill="#FF9900"/>
       <path d="M26.2 13.8c-.3-.4-1.8-.6-2.7-.5-.4 0-.6-.3-.4-.6.3-.5 1.7-1 2.6-.7.8.3 1.2 1.4 1 2.4-.1.4-.4.5-.7.3-.2-.2-.1-.7.2-.9z" fill="#FF9900"/>
@@ -43,35 +41,23 @@
       <path d="M20.8 11.3c-.7-.3-1.2-.7-1.5-1.2-.1-.2 0-.4.1-.5l.4-.4c.2-.1.3-.1.5 0 .3.4.7.7 1.2.9.5.2 1 .2 1.4 0 .4-.2.6-.5.6-.8 0-.4-.2-.6-.7-.8l-1.1-.3c-.8-.2-1.4-.6-1.7-1-.3-.4-.5-.9-.5-1.5 0-.8.3-1.5.9-2 .6-.5 1.4-.7 2.3-.7.7 0 1.4.2 2 .5.2.1.2.3.1.5l-.4.4c-.1.1-.3.2-.4.1-.5-.3-1-.4-1.4-.4-.5 0-.9.1-1.3.3-.3.2-.5.5-.5.8 0 .3.2.6.7.7l1.1.3c.9.2 1.5.6 1.8 1 .3.4.5 1 .5 1.6 0 .8-.3 1.5-1 2-.6.5-1.4.7-2.4.7-.6 0-1.2-.1-1.7-.3z" fill="#232F3E"/>
     </g>
 
-    <!-- Argo CD Octopus Mascot -->
-    <g id="icon-argocd">
-      <ellipse cx="20" cy="18" rx="14" ry="12" fill="#f97316"/>
-      <!-- Eyes -->
-      <circle cx="15" cy="16" r="4" fill="#ffffff"/>
-      <circle cx="15" cy="16" r="2" fill="#1e293b"/>
-      <circle cx="25" cy="16" r="4" fill="#ffffff"/>
-      <circle cx="25" cy="16" r="2" fill="#1e293b"/>
-      <!-- Headphones -->
-      <path d="M6 18c0-8 6-14 14-14s14 6 14 14" fill="none" stroke="#38bdf8" stroke-width="3"/>
-      <rect x="4" y="14" width="4" height="8" rx="2" fill="#0284c7"/>
-      <rect x="32" y="14" width="4" height="8" rx="2" fill="#0284c7"/>
-      <!-- Tentacles -->
-      <path d="M10 27c0 4 3 6 5 4s-1-4 2-5m3 5c0 4 3 5 4 3s-1-4 2-4m3 5c0 4 3 5 4 3" fill="none" stroke="#f97316" stroke-width="3" stroke-linecap="round"/>
+    <!-- Docker Logo -->
+    <g id="icon-docker">
+      <rect x="7" y="10" width="3" height="3" fill="#0db7ed" rx="0.5"/>
+      <rect x="11" y="10" width="3" height="3" fill="#0db7ed" rx="0.5"/>
+      <rect x="15" y="10" width="3" height="3" fill="#0db7ed" rx="0.5"/>
+      <rect x="11" y="6" width="3" height="3" fill="#0db7ed" rx="0.5"/>
+      <rect x="15" y="6" width="3" height="3" fill="#0db7ed" rx="0.5"/>
+      <rect x="15" y="2" width="3" height="3" fill="#0db7ed" rx="0.5"/>
+      <path d="M26 10.5c-.5-.3-1.5-.4-2.2-.1-.2-.8-.8-1.5-1.6-1.9l-.5-.3-.3.5c-.4.8-.4 1.8 0 2.6-.7.4-1.7.5-2.6.5H2c-.4 0-.7.3-.7.7 0 3.8 2.2 7 6.1 8 3.5.9 7.6.6 10.8-1.2 3.6-2 5.6-5.5 5.8-8.2.7-.4 1.4-.3 2 .1z" fill="#0db7ed"/>
     </g>
 
-    <!-- Prometheus Flame Logo -->
-    <g id="icon-prometheus">
-      <circle cx="16" cy="16" r="15" fill="#e6522c"/>
-      <path d="M16 4c0 0-4 6-4 10 0 2.2 1.8 4 4 4s4-1.8 4-4c0-4-4-10-4-10z" fill="#ffffff"/>
-      <path d="M16 12c-1.1 0-2 .9-2 2 0 1.5 2 4 2 4s2-2.5 2-4c0-1.1-.9-2-2-2z" fill="#e6522c"/>
-      <circle cx="16" cy="24" r="2.5" fill="#ffffff"/>
-    </g>
-
-    <!-- Grafana Swirl Logo -->
-    <g id="icon-grafana">
-      <circle cx="16" cy="16" r="15" fill="#f46800"/>
-      <path d="M16 7c-4.97 0-9 4.03-9 9 0 4.14 2.8 7.62 6.64 8.64-.13-.71-.24-1.62-.24-2.64 0-4.42 3.58-8 8-8 .83 0 1.63.13 2.38.37C22.65 10.3 19.6 7 16 7z" fill="#ffffff"/>
-      <circle cx="21" cy="18" r="3" fill="#ffffff"/>
+    <!-- Terraform Logo -->
+    <g id="icon-terraform">
+      <polygon points="0,2 9,7 9,18 0,13" fill="#5c4ee5"/>
+      <polygon points="11,7 20,12 20,23 11,18" fill="#4040b2"/>
+      <polygon points="11,25 20,30 20,41 11,36" fill="#5c4ee5"/>
+      <polygon points="22,12 31,17 31,28 22,23" fill="#7b42bc"/>
     </g>
 
     <!-- Gitleaks Logo -->
@@ -86,111 +72,97 @@
       <path d="M7 14l4 4 7-8" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
     </g>
 
-    <!-- SonarCloud Logo -->
-    <g id="icon-sonarcloud">
-      <circle cx="14" cy="14" r="13" fill="#ffffff" stroke="#ea580c" stroke-width="2"/>
-      <path d="M8 18c1.5-4 5-6 8-4m-6 6c1-2 3-3 4-2" fill="none" stroke="#ea580c" stroke-width="2.2" stroke-linecap="round"/>
-    </g>
-
     <!-- Trivy Aqua Logo -->
     <g id="icon-trivy">
       <polygon points="14,3 25,23 3,23" fill="#06b6d4"/>
       <polygon points="14,9 20,20 8,20" fill="#ffffff"/>
     </g>
 
-    <!-- Sigstore Logo -->
-    <g id="icon-sigstore">
-      <circle cx="14" cy="14" r="13" fill="#1e293b"/>
-      <path d="M8 14l4 4 8-8" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- AWS ECR Logo -->
+    <g id="icon-ecr">
+      <rect x="2" y="2" width="28" height="28" rx="6" fill="#f97316"/>
+      <polygon points="16,7 25,12 25,22 16,27 7,22 7,12" fill="none" stroke="#ffffff" stroke-width="2"/>
+      <circle cx="16" cy="17" r="3" fill="#ffffff"/>
     </g>
 
-    <!-- Cosign Logo -->
-    <g id="icon-cosign">
-      <circle cx="14" cy="14" r="13" fill="#4f46e5"/>
-      <path d="M8 18c4-1 9-8 12-10" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- AWS CloudFront Logo -->
+    <g id="icon-cloudfront">
+      <rect x="2" y="2" width="28" height="28" rx="6" fill="#7c3aed"/>
+      <circle cx="16" cy="16" r="9" fill="none" stroke="#ffffff" stroke-width="1.8"/>
+      <ellipse cx="16" cy="16" rx="4" ry="9" fill="none" stroke="#ffffff" stroke-width="1.5"/>
+      <line x1="7" y1="16" x2="25" y2="16" stroke="#ffffff" stroke-width="1.5"/>
     </g>
 
-    <!-- AWS KMS Key -->
+    <!-- AWS S3 Logo -->
+    <g id="icon-s3">
+      <rect x="2" y="2" width="28" height="28" rx="6" fill="#16a34a"/>
+      <ellipse cx="16" cy="9" rx="8" ry="3" fill="#ffffff"/>
+      <path d="M8 9v10c0 1.66 3.58 3 8 3s8-1.34 8-3V9" fill="none" stroke="#ffffff" stroke-width="2"/>
+      <path d="M8 14c0 1.66 3.58 3 8 3s8-1.34 8-3" fill="none" stroke="#ffffff" stroke-width="2"/>
+    </g>
+
+    <!-- AWS ALB Logo -->
+    <g id="icon-alb">
+      <rect x="2" y="2" width="28" height="28" rx="6" fill="#4f46e5"/>
+      <circle cx="10" cy="10" r="3" fill="#ffffff"/>
+      <circle cx="10" cy="22" r="3" fill="#ffffff"/>
+      <circle cx="22" cy="16" r="3" fill="#ffffff"/>
+      <path d="M13 10h3a3 3 0 0 1 3 3v3m0 0v3a3 3 0 0 1-3 3h-3" fill="none" stroke="#ffffff" stroke-width="2"/>
+    </g>
+
+    <!-- AWS ECS Fargate Logo -->
+    <g id="icon-ecs">
+      <rect x="2" y="2" width="28" height="28" rx="6" fill="#ea580c"/>
+      <polygon points="16,6 25,11 25,21 16,26 7,21 7,11" fill="none" stroke="#ffffff" stroke-width="2"/>
+      <circle cx="16" cy="16" r="3.5" fill="#ffffff"/>
+    </g>
+
+    <!-- AWS RDS MySQL Logo -->
+    <g id="icon-rds">
+      <rect x="2" y="2" width="28" height="28" rx="6" fill="#2563eb"/>
+      <ellipse cx="16" cy="8" rx="8" ry="3" fill="#ffffff"/>
+      <path d="M8 8v12c0 1.66 3.58 3 8 3s8-1.34 8-3V8" fill="none" stroke="#ffffff" stroke-width="2"/>
+      <path d="M8 14c0 1.66 3.58 3 8 3s8-1.34 8-3" fill="none" stroke="#ffffff" stroke-width="2"/>
+      <circle cx="16" cy="16" r="2" fill="#2563eb"/>
+    </g>
+
+    <!-- AWS KMS Key Logo -->
     <g id="icon-kms">
-      <rect x="2" y="2" width="24" height="24" rx="4" fill="#f59e0b"/>
-      <circle cx="11" cy="11" r="3.5" fill="none" stroke="#ffffff" stroke-width="2"/>
-      <path d="M14 14l6 6m-2-1l1.5-1.5" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+      <rect x="2" y="2" width="28" height="28" rx="6" fill="#f59e0b"/>
+      <circle cx="12" cy="12" r="4" fill="none" stroke="#ffffff" stroke-width="2"/>
+      <path d="M15 15l6 6m-2-1l1.5-1.5" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
     </g>
 
-    <!-- Blue Pod Badge Macro -->
-    <g id="pod-badge">
-      <rect x="0" y="0" width="34" height="34" rx="6" fill="#0284c7"/>
-      <text x="17" y="22" font-size="12" font-weight="900" fill="#ffffff" text-anchor="middle">pod</text>
+    <!-- AWS CloudWatch Logo -->
+    <g id="icon-cloudwatch">
+      <rect x="2" y="2" width="28" height="28" rx="6" fill="#e11d48"/>
+      <path d="M8 22h16M11 18l3-4 4 3 4-6" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+
+    <!-- Lock Icon (ACM SSL) -->
+    <g id="icon-ssl">
+      <rect x="2" y="2" width="28" height="28" rx="6" fill="#16a34a"/>
+      <path d="M10 14v-3a4 4 0 0 1 8 0v3m-6 0h10a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2z" fill="none" stroke="#ffffff" stroke-width="2"/>
     </g>
   </defs>
 
-  <!-- 1. TOP HEADER / OPERATIONAL INTELLIGENCE / REMEDIATION ALERTS -->
-
-  <!-- Top-Left Slack Notification -->
-  <g transform="translate(25, 60)">
-    <use href="#icon-slack" x="0" y="0" width="32" height="32"/>
-    <text x="40" y="14" font-size="11" font-weight="800" fill="#0f172a">Slack Notification</text>
-    <text x="40" y="28" font-size="10" font-weight="600" fill="#0284c7">#operational-intelligence</text>
-  </g>
-
-  <!-- Top Center-Left: Amazon ECR (Elastic Container Registry) -->
-  <g transform="translate(480, 50)">
-    <text x="35" y="-10" font-size="11" font-weight="800" fill="#0f172a" text-anchor="middle">Amazon ECR</text>
-    <rect x="15" y="0" width="40" height="40" rx="8" fill="#f97316"/>
-    <polygon points="35,8 47,15 47,27 35,34 23,27 23,15" fill="none" stroke="#ffffff" stroke-width="2"/>
-    <circle cx="35" cy="21" r="3.5" fill="#ffffff"/>
-  </g>
-
-  <!-- Top Center: Cloud Storage / S3 Telemetry Archive -->
-  <g transform="translate(690, 50)">
-    <rect x="0" y="0" width="130" height="38" rx="6" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.2"/>
-    <text x="65" y="16" font-size="10" font-weight="700" fill="#1e3a8a" text-anchor="middle">S3 telemetry-archive</text>
-    <text x="65" y="29" font-size="9" fill="#0284c7" text-anchor="middle">App Logs &amp; Flow Logs</text>
-  </g>
-
-  <!-- Top Center-Right: Alert Webhook Slack Notification -->
-  <g transform="translate(860, 48)">
-    <use href="#icon-slack" x="0" y="0" width="28" height="28"/>
-    <text x="36" y="13" font-size="10" font-weight="800" fill="#0f172a">Slack Notification</text>
-    <text x="36" y="25" font-size="9" font-weight="600" fill="#059669">#operational-intelligence</text>
-  </g>
-
-  <!-- Top Right: Prometheus Operator & Alertmanager + Grafana Robusta OSS -->
-  <g transform="translate(1045, 30)">
-    <use href="#icon-prometheus" x="0" y="10" width="34" height="34"/>
-    <text x="40" y="22" font-size="11" font-weight="800" fill="#0f172a">Prometheus Operator</text>
-    <text x="40" y="34" font-size="10" font-weight="700" fill="#0f172a">&amp; Alertmanager</text>
-
-    <use href="#icon-grafana" x="165" y="10" width="34" height="34"/>
-    <text x="205" y="22" font-size="11" font-weight="800" fill="#0f172a">Grafana</text>
-    <text x="205" y="34" font-size="10" font-weight="700" fill="#0f172a">Robusta OSS</text>
-  </g>
-
-  <!-- Far Top-Right: Immutable Audit Log (AWS CloudTrail / Athena) -->
-  <g transform="translate(1360, 32)">
-    <rect x="0" y="0" width="38" height="38" rx="8" fill="#9333ea"/>
-    <circle cx="19" cy="19" r="10" fill="none" stroke="#ffffff" stroke-width="2"/>
-    <line x1="26" y1="26" x2="33" y2="33" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
-    <text x="48" y="18" font-size="12" font-weight="800" fill="#0f172a">Immutable Audit Log</text>
-    <text x="48" y="32" font-size="9" font-family="monospace" fill="#64748b">ops_analytics_prod.operational_remediation_audit</text>
+  <!-- ========================================================================= -->
+  <!-- TITLE BANNER                                                              -->
+  <!-- ========================================================================= -->
+  <g transform="translate(870, 36)" text-anchor="middle">
+    <text y="0" font-size="20" font-weight="900" fill="#0f172a" letter-spacing="0.5">ENTERPRISE HOSPITAL SYSTEM - CLOUD ARCHITECTURE &amp; DEVSECOPS BLUEPRINT</text>
+    <text y="22" font-size="11" font-weight="600" fill="#64748b">Decoupled Multi-Repo CI/CD | Zero-Trust OIDC Federation | CloudFront Single-Origin Proxy | 3-Tier Isolated VPC | Elastic ECS Fargate | Multi-AZ RDS</text>
   </g>
 
 
-  <!-- 2. LEFT SECTION: DEVELOPER & CODE REPO -->
-
-  <!-- Code Repository Icon -->
-  <g transform="translate(125, 200)">
-    <rect x="0" y="0" width="50" height="50" rx="10" fill="#0f172a" stroke="#1e293b" stroke-width="1.5"/>
-    <path d="M15 25l6-6m0 0l-6-6m6 6H35m-6 12l-6 6m0 0l6 6m-6-6h20" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
-    <text x="25" y="65" font-size="11" font-weight="800" fill="#0f172a" text-anchor="middle">Code</text>
-    <text x="25" y="78" font-size="11" font-weight="800" fill="#0f172a" text-anchor="middle">Repository</text>
-  </g>
+  <!-- ========================================================================= -->
+  <!-- COLUMN 1: DEVELOPER & REPOSITORIES (LEFT)                                 -->
+  <!-- ========================================================================= -->
 
   <!-- Developer Avatar -->
-  <g transform="translate(35, 450)">
+  <g transform="translate(30, 260)">
     <!-- Head -->
     <circle cx="35" cy="22" r="15" fill="#fed7aa" stroke="#0f172a" stroke-width="2"/>
-    <!-- Hair -->
     <path d="M20 20c1-8 8-12 18-11 5 1 9 4 10 9-3-2-8-3-14-2-4 1-10 2-14 4z" fill="#0f172a"/>
     <!-- Body -->
     <path d="M12 60c0-14 10-22 23-22s23 8 23 22z" fill="#0284c7" stroke="#0f172a" stroke-width="2"/>
@@ -199,450 +171,469 @@
     <rect x="22" y="49" width="26" height="15" rx="1" fill="#0f172a"/>
     <text x="35" y="61" font-size="10" font-family="monospace" font-weight="900" fill="#38bdf8" text-anchor="middle">&lt;/&gt;</text>
     <!-- Label -->
-    <text x="35" y="94" font-size="14" font-weight="800" fill="#0f172a" text-anchor="middle">Developer</text>
+    <text x="35" y="92" font-size="12" font-weight="800" fill="#0f172a" text-anchor="middle">Lead Architect /</text>
+    <text x="35" y="106" font-size="12" font-weight="800" fill="#0284c7" text-anchor="middle">DevOps Engineer</text>
   </g>
 
-  <!-- Dashed Arrows: Dev to Code Repo -->
-  <path d="M 68 450 C 68 340, 85 270, 120 235" fill="none" stroke="#0284c7" stroke-width="1.8" stroke-dasharray="4,4" marker-end="url(#arrow-blue)"/>
-  <text x="75" y="360" font-size="11" font-weight="700" fill="#0284c7" transform="rotate(-80 75 360)">git commit</text>
+  <!-- Dashed Arrows: Dev to Repositories Card -->
+  <path d="M 65 260 C 65 180, 85 140, 115 130" fill="none" stroke="#0284c7" stroke-width="1.8" stroke-dasharray="4,4" marker-end="url(#arrow-blue)"/>
+  <text x="65" y="195" font-size="10" font-weight="700" fill="#0284c7" transform="rotate(-85 65 195)">git push</text>
 
-  <path d="M 80 470 C 100 400, 110 320, 135 260" fill="none" stroke="#0284c7" stroke-width="1.8" stroke-dasharray="4,4" marker-end="url(#arrow-blue)"/>
-  <text x="110" y="375" font-size="11" font-weight="700" fill="#0284c7" transform="rotate(-80 110 375)">git push</text>
+  <!-- GitHub Code Repositories Card -->
+  <g transform="translate(125, 80)">
+    <rect x="0" y="0" width="295" height="105" rx="10" fill="#ffffff" stroke="#0f172a" stroke-width="1.8" filter="url(#cardShadow)"/>
+    <use href="#icon-github" x="14" y="12" width="24" height="24"/>
+    <text x="46" y="28" font-size="12" font-weight="800" fill="#0f172a">GitHub Code Repositories (Decoupled)</text>
 
-  <!-- Code Repo to GitHub Actions CI/CD -->
-  <path d="M 180 225 L 225 225" fill="none" stroke="#0f172a" stroke-width="2" marker-end="url(#arrow-black)"/>
-  <text x="202" y="215" font-size="10" font-weight="700" fill="#0f172a" text-anchor="middle">trigger workflow</text>
+    <!-- Repo 1: Infra -->
+    <rect x="12" y="42" width="271" height="18" rx="4" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="20" y="55" font-size="9" font-family="monospace" font-weight="700" fill="#0f172a">📦 hospital-system-infra</text>
+    <text x="270" y="55" font-size="8" fill="#5c4ee5" text-anchor="end">Terraform IaC</text>
 
+    <!-- Repo 2: Backend -->
+    <rect x="12" y="62" width="271" height="18" rx="4" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="20" y="75" font-size="9" font-family="monospace" font-weight="700" fill="#0f172a">☕ hospital-system-backend</text>
+    <text x="270" y="75" font-size="8" fill="#16a34a" text-anchor="end">Spring Boot 8</text>
 
-  <!-- 3. GITHUB ACTIONS CI/CD CONTAINER -->
+    <!-- Repo 3: Frontend -->
+    <rect x="12" y="82" width="271" height="18" rx="4" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="20" y="95" font-size="9" font-family="monospace" font-weight="700" fill="#0f172a">⚛️ hospital-system-frontend</text>
+    <text x="270" y="95" font-size="8" fill="#0284c7" text-anchor="end">React 18 SPA</text>
+  </g>
 
-  <g transform="translate(230, 185)">
-    <!-- Container -->
-    <rect x="0" y="0" width="225" height="660" rx="14" fill="#ffffff" stroke="#0f172a" stroke-width="2"/>
+  <!-- Arrow from Repos to GitHub Actions CI/CD -->
+  <path d="M 272 185 L 272 205" fill="none" stroke="#0f172a" stroke-width="2" marker-end="url(#arrow-black)"/>
+  <text x="282" y="198" font-size="9" font-weight="700" fill="#0f172a">trigger workflow</text>
 
-    <!-- Header: Octocat + Title -->
-    <use href="#icon-github" x="18" y="15" width="28" height="28"/>
-    <text x="54" y="26" font-size="13" font-weight="800" fill="#0f172a">GitHub Actions</text>
-    <text x="54" y="39" font-size="12" font-weight="700" fill="#0f172a">CI/CD</text>
+  <!-- GitHub Actions CI/CD Container -->
+  <g transform="translate(125, 215)">
+    <rect x="0" y="0" width="295" height="735" rx="12" fill="#ffffff" stroke="#0f172a" stroke-width="2" filter="url(#softShadow)"/>
 
-    <!-- JOB ONE: Build, Scan, and Sign -->
-    <rect x="10" y="52" width="205" height="385" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
-    <text x="20" y="69" font-size="11" font-weight="700" fill="#0f172a">Job One: Build, Scan, and Sign</text>
+    <!-- CI/CD Header -->
+    <use href="#icon-github" x="16" y="14" width="26" height="26"/>
+    <text x="50" y="26" font-size="13" font-weight="900" fill="#0f172a">GitHub Actions CI/CD</text>
+    <text x="50" y="38" font-size="10" font-weight="600" fill="#64748b">Automated DevSecOps Pipeline Gates</text>
 
-    <!-- git checkout -->
-    <rect x="20" y="80" width="185" height="28" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
-    <text x="112" y="98" font-size="11" font-weight="600" fill="#1e293b" text-anchor="middle">git checkout</text>
+    <!-- STAGE 1: Build, Lint & Security Scans -->
+    <rect x="12" y="48" width="271" height="425" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
+    <rect x="12" y="48" width="271" height="24" rx="8" fill="#f1f5f9"/>
+    <text x="147" y="64" font-size="10" font-weight="800" fill="#1e293b" text-anchor="middle">STAGE 1: BUILD &amp; SECURITY GATES</text>
 
-    <!-- Code Build -->
-    <rect x="20" y="116" width="185" height="28" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
-    <text x="112" y="134" font-size="11" font-weight="600" fill="#1e293b" text-anchor="middle">Code Build</text>
+    <!-- Step 1: git checkout -->
+    <rect x="22" y="80" width="251" height="32" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="32" y="100" font-size="10" font-weight="600" fill="#1e293b">actions/checkout@v4 (Deep Fetch)</text>
 
-    <!-- SAST Scan Card -->
-    <rect x="20" y="152" width="185" height="82" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
-    <text x="112" y="167" font-size="10" font-weight="700" fill="#64748b" text-anchor="middle">SAST Scan</text>
+    <!-- Step 2: Code Build -->
+    <rect x="22" y="118" width="251" height="38" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="32" y="134" font-size="10" font-weight="700" fill="#0f172a">Code Build &amp; Compile</text>
+    <text x="32" y="148" font-size="9" fill="#64748b">Amazon Corretto 8 Maven &amp; Vite React 18</text>
 
-    <g transform="translate(30, 178)">
-      <use href="#icon-gitleaks" x="0" y="0" width="26" height="26"/>
-      <text x="13" y="35" font-size="9" font-weight="700" fill="#0f172a" text-anchor="middle">Gitleaks</text>
-    </g>
-    <g transform="translate(85, 178)">
-      <use href="#icon-hadolint" x="0" y="0" width="26" height="26"/>
-      <text x="13" y="35" font-size="9" font-weight="700" fill="#0f172a" text-anchor="middle">Hadolint</text>
-    </g>
-    <g transform="translate(140, 178)">
-      <use href="#icon-sonarcloud" x="0" y="0" width="26" height="26"/>
-      <text x="13" y="35" font-size="9" font-weight="700" fill="#0f172a" text-anchor="middle">SonarCloud</text>
-    </g>
-
-    <!-- Vulnerability Scan Card -->
-    <rect x="20" y="242" width="185" height="74" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
-    <text x="112" y="258" font-size="10" font-weight="700" fill="#64748b" text-anchor="middle">Vulnerability Scan</text>
-    <g transform="translate(100, 268)">
-      <use href="#icon-trivy" x="-13" y="0" width="26" height="26"/>
-      <text x="0" y="36" font-size="9" font-weight="700" fill="#0f172a" text-anchor="middle">Trivy</text>
-    </g>
-
-    <!-- Image Sign Card -->
-    <rect x="20" y="324" width="185" height="100" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
-    <text x="112" y="340" font-size="10" font-weight="700" fill="#64748b" text-anchor="middle">Image Sign</text>
-
-    <g transform="translate(30, 350)">
-      <use href="#icon-sigstore" x="0" y="0" width="26" height="26"/>
-      <text x="13" y="35" font-size="9" font-weight="700" fill="#0f172a" text-anchor="middle">Sigstore</text>
-    </g>
-    <g transform="translate(85, 350)">
-      <use href="#icon-cosign" x="0" y="0" width="26" height="26"/>
-      <text x="13" y="35" font-size="9" font-weight="700" fill="#0f172a" text-anchor="middle">Cosign</text>
-    </g>
-    <g transform="translate(140, 350)">
-      <use href="#icon-kms" x="0" y="0" width="26" height="26"/>
-      <text x="13" y="35" font-size="9" font-weight="700" fill="#0f172a" text-anchor="middle">Cloud KMS</text>
+    <!-- Security Gate 1: Gitleaks -->
+    <g transform="translate(22, 164)">
+      <rect x="0" y="0" width="251" height="54" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+      <use href="#icon-gitleaks" x="10" y="13" width="28" height="28"/>
+      <text x="46" y="24" font-size="11" font-weight="800" fill="#0f172a">1. Gitleaks Secret Scanner</text>
+      <text x="46" y="38" font-size="9" fill="#16a34a" font-weight="600">Zero Credential Leaks Verified</text>
+      <text x="46" y="48" font-size="8" fill="#64748b">Prevents API key &amp; DB token exposure</text>
     </g>
 
-    <!-- JOB TWO: Deploy to AWS ECS / Cloud -->
-    <rect x="10" y="446" width="205" height="202" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
-    <text x="20" y="464" font-size="11" font-weight="700" fill="#0f172a">Job Two: Deploy to AWS ECS</text>
-
-    <!-- Setup Terraform / Kustomize -->
-    <rect x="20" y="474" width="185" height="28" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
-    <text x="112" y="492" font-size="10" font-weight="600" fill="#1e293b" text-anchor="middle">Setup Terraform</text>
-
-    <!-- Side-by-Side: Auth to AWS & Workload Identity Federation -->
-    <g transform="translate(20, 510)">
-      <rect x="0" y="0" width="88" height="58" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
-      <text x="44" y="22" font-size="9" font-weight="700" fill="#0f172a" text-anchor="middle">Auth to</text>
-      <text x="44" y="35" font-size="9" font-weight="700" fill="#0f172a" text-anchor="middle">AWS Cloud</text>
-      <text x="44" y="48" font-size="8" fill="#16a34a" text-anchor="middle">Keyless STS</text>
-
-      <rect x="97" y="0" width="88" height="58" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
-      <text x="141" y="20" font-size="9" font-weight="700" fill="#0f172a" text-anchor="middle">Workload</text>
-      <text x="141" y="32" font-size="9" font-weight="700" fill="#0f172a" text-anchor="middle">Identity</text>
-      <text x="141" y="45" font-size="8" fill="#0284c7" text-anchor="middle">Federation</text>
+    <!-- Security Gate 2: Hadolint -->
+    <g transform="translate(22, 226)">
+      <rect x="0" y="0" width="251" height="54" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+      <use href="#icon-hadolint" x="10" y="13" width="28" height="28"/>
+      <text x="46" y="24" font-size="11" font-weight="800" fill="#0f172a">2. Hadolint Docker Linter</text>
+      <text x="46" y="38" font-size="9" fill="#0284c7" font-weight="600">Least-Privilege Non-Root Enforcement</text>
+      <text x="46" y="48" font-size="8" fill="#64748b">Validates container hardening best practices</text>
     </g>
 
-    <!-- Deploy Manifests with Argo CD / GitOps -->
-    <rect x="20" y="576" width="185" height="60" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
-    <use href="#icon-argocd" x="125" y="582" width="40" height="36"/>
-    <text x="145" y="628" font-size="8" font-weight="700" fill="#f97316" text-anchor="middle">GitOps</text>
-    <text x="65" y="604" font-size="10" font-weight="700" fill="#0f172a" text-anchor="middle">Deploy</text>
-    <text x="65" y="618" font-size="10" font-weight="700" fill="#0f172a" text-anchor="middle">Manifests</text>
+    <!-- Security Gate 3: Trivy -->
+    <g transform="translate(22, 288)">
+      <rect x="0" y="0" width="251" height="54" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+      <use href="#icon-trivy" x="10" y="13" width="28" height="28"/>
+      <text x="46" y="24" font-size="11" font-weight="800" fill="#0f172a">3. Trivy Vulnerability Scanner</text>
+      <text x="46" y="38" font-size="9" fill="#06b6d4" font-weight="600">OS Package &amp; Dependency CVE Gate</text>
+      <text x="46" y="48" font-size="8" fill="#64748b">CRITICAL &amp; HIGH vulnerabilities blocked</text>
+    </g>
+
+    <!-- Step 4: Docker ECR Build & Package -->
+    <g transform="translate(22, 350)">
+      <rect x="0" y="0" width="251" height="60" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+      <use href="#icon-docker" x="10" y="16" width="28" height="28"/>
+      <text x="46" y="24" font-size="11" font-weight="800" fill="#0f172a">4. Docker ECR Build &amp; Package</text>
+      <text x="46" y="38" font-size="9" fill="#0284c7">Temurin-8-JRE Alpine Hardened Image</text>
+      <text x="46" y="50" font-size="8" font-weight="700" fill="#ea580c">Pushed to Amazon ECR via SHA Digest</text>
+    </g>
+
+    <!-- STAGE 2: Keyless Deploy to AWS -->
+    <rect x="12" y="484" width="271" height="236" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
+    <rect x="12" y="484" width="271" height="24" rx="8" fill="#f1f5f9"/>
+    <text x="147" y="500" font-size="10" font-weight="800" fill="#1e3a8a" text-anchor="middle">STAGE 2: KEYLESS DEPLOY TO AWS</text>
+
+    <!-- Setup Terraform CLI -->
+    <rect x="22" y="516" width="251" height="30" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+    <use href="#icon-terraform" x="30" y="521" width="16" height="20"/>
+    <text x="56" y="535" font-size="10" font-weight="700" fill="#0f172a">Setup Terraform CLI (v1.5+)</text>
+
+    <!-- Step 5: Keyless OIDC (STS) -->
+    <g transform="translate(22, 554)">
+      <rect x="0" y="0" width="251" height="74" rx="6" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.2"/>
+      <text x="12" y="20" font-size="11" font-weight="800" fill="#1e3a8a">5. Keyless OIDC STS Federation</text>
+      <text x="12" y="35" font-size="9" font-weight="700" fill="#16a34a">Zero Permanent AWS Access Keys!</text>
+      <text x="12" y="49" font-size="8" fill="#64748b">GitHub OIDC token exchanges for short-lived</text>
+      <text x="12" y="61" font-size="8" font-family="monospace" fill="#0284c7">sts:AssumeRoleWithWebIdentity (1-hr TTL)</text>
+    </g>
+
+    <!-- Step 6: Deploy Infrastructure & Tasks -->
+    <g transform="translate(22, 636)">
+      <rect x="0" y="0" width="251" height="70" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+      <text x="12" y="20" font-size="11" font-weight="800" fill="#0f172a">Terraform Apply &amp; ECS Rolling Deploy</text>
+      <text x="12" y="34" font-size="9" fill="#64748b">Decoupled Promotion Pipeline:</text>
+      <text x="12" y="48" font-size="8" font-weight="700" fill="#16a34a">✓ Dev: Automated CI/CD Push Trigger</text>
+      <text x="12" y="60" font-size="8" font-weight="700" fill="#7c3aed">🛡️ Prod: Independent Manual workflow_dispatch</text>
+    </g>
   </g>
 
 
-  <!-- 4. CENTER MAIN CONTAINER: AMAZON WEB SERVICES (AWS CLOUD PLATFORM) -->
+  <!-- ========================================================================= -->
+  <!-- TOP CENTER: AMAZON ECR (RECEIVING IMAGE FROM CI, FEEDING FARGATE)         -->
+  <!-- ========================================================================= -->
 
-  <g transform="translate(480, 185)">
-    <!-- Main Outer Container Box -->
-    <rect x="0" y="0" width="860" height="660" rx="16" fill="#f8f9fa" stroke="#0f172a" stroke-width="2"/>
+  <g transform="translate(485, 75)">
+    <rect x="0" y="0" width="220" height="54" rx="8" fill="#ffffff" stroke="#0f172a" stroke-width="1.8" filter="url(#cardShadow)"/>
+    <use href="#icon-ecr" x="12" y="11" width="32" height="32"/>
+    <text x="52" y="24" font-size="12" font-weight="800" fill="#0f172a">Amazon ECR</text>
+    <text x="52" y="37" font-size="9" font-weight="600" fill="#ea580c">Elastic Container Registry</text>
+    <text x="52" y="47" font-size="8" fill="#64748b">hospital-system-dev-backend</text>
+  </g>
 
-    <!-- Cloud Platform Header: AWS Logo + Title -->
+  <!-- Push Image Arrow: GitHub Actions Step 4 to Amazon ECR -->
+  <path d="M 420 590 C 455 590, 465 140, 485 105" fill="none" stroke="#ea580c" stroke-width="1.8" stroke-dasharray="4,4" marker-end="url(#arrow-orange)"/>
+  <text x="455" y="320" font-size="10" font-weight="800" fill="#ea580c" transform="rotate(-90 455 320)">push image</text>
+
+
+  <!-- ========================================================================= -->
+  <!-- COLUMN 2: AMAZON WEB SERVICES (AWS CLOUD PLATFORM) (CENTER)               -->
+  <!-- ========================================================================= -->
+
+  <g transform="translate(450, 140)">
+    <!-- AWS Cloud Main Container Box -->
+    <rect x="0" y="0" width="880" height="810" rx="16" fill="#f8fafc" stroke="#0f172a" stroke-width="2" filter="url(#softShadow)"/>
+
+    <!-- AWS Cloud Header -->
     <use href="#icon-aws" x="25" y="16" width="36" height="24"/>
-    <text x="70" y="33" font-size="20" font-weight="800" fill="#0f172a">Amazon Web Services (AWS)</text>
+    <text x="70" y="32" font-size="18" font-weight="900" fill="#0f172a">Amazon Web Services (AWS Cloud)</text>
+    <text x="70" y="47" font-size="10" font-weight="600" fill="#64748b">Account ID: 323198192259 | Region: us-east-1</text>
 
-    <!-- AWS ECS FARGATE CLUSTER -->
-    <g transform="translate(20, 58)">
-      <!-- Cluster Outer Border -->
-      <rect x="0" y="0" width="530" height="340" rx="12" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.8"/>
+    <!-- ===================================================================== -->
+    <!-- TIER 0: AWS EDGE / CLOUDFRONT CDN & S3 SINGLE=ORIGIN ARCHITECTURE     -->
+    <!-- ===================================================================== -->
+    <g transform="translate(20, 60)">
+      <rect x="0" y="0" width="840" height="110" rx="12" fill="#f0f9ff" stroke="#7dd3fc" stroke-width="1.8"/>
 
-      <!-- Cluster Title -->
-      <text x="265" y="24" font-size="15" font-weight="800" fill="#1e3a8a" text-anchor="middle">AWS ECS Fargate Cluster</text>
+      <!-- CloudFront Header -->
+      <use href="#icon-cloudfront" x="16" y="12" width="30" height="30"/>
+      <text x="54" y="27" font-size="13" font-weight="900" fill="#0369a1">AWS Edge: CloudFront CDN (devopsstandard.name.ng)</text>
+      <text x="54" y="40" font-size="9" fill="#0284c7">Distribution ID: E1EIZP6V20O6OY | Single-Origin Reverse Proxy Architecture (Eliminates CORS Complexity!)</text>
 
-      <!-- OpenTelemetry Pill at the top border -->
-      <g transform="translate(325, 4)">
-        <rect x="0" y="0" width="195" height="42" rx="6" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.2"/>
-        <text x="97" y="14" font-size="9" font-weight="800" fill="#1e3a8a" text-anchor="middle">Namespace: opentelemetry</text>
-        <text x="97" y="26" font-size="8" font-weight="700" fill="#0284c7" text-anchor="middle">pod otel-collector</text>
-        <text x="97" y="37" font-size="7" fill="#64748b" text-anchor="middle">OTLP Ingest - Metrics Bridge</text>
+      <!-- Origin 1: S3 Bucket -->
+      <g transform="translate(16, 48)">
+        <rect x="0" y="0" width="395" height="52" rx="6" fill="#ffffff" stroke="#93c5fd" stroke-width="1"/>
+        <use href="#icon-s3" x="10" y="10" width="32" height="32"/>
+        <text x="48" y="22" font-size="10" font-weight="800" fill="#0f172a">Origin 1: Amazon S3 (Static React Bundle)</text>
+        <text x="48" y="34" font-size="8" fill="#16a34a">Origin Access Control (OAC) Enabled (Zero Public S3 Bucket!)</text>
+        <text x="48" y="45" font-size="8" font-family="monospace" fill="#64748b">Path: / (All Static Assets, CSS, JS, HTML5 Routing)</text>
       </g>
 
-      <!-- Sub-Box 1: Control Plane -->
-      <g transform="translate(12, 50)">
-        <rect x="0" y="0" width="125" height="275" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="3,3"/>
-        <text x="62" y="22" font-size="11" font-weight="700" fill="#0f172a" text-anchor="middle">Control Plane</text>
+      <!-- Origin 2: ALB Dynamic Reverse Proxy -->
+      <g transform="translate(425, 48)">
+        <rect x="0" y="0" width="398" height="52" rx="6" fill="#ffffff" stroke="#93c5fd" stroke-width="1"/>
+        <use href="#icon-alb" x="10" y="10" width="32" height="32"/>
+        <text x="48" y="22" font-size="10" font-weight="800" fill="#0f172a">Origin 2: ALB Dynamic API Reverse Proxy</text>
+        <text x="48" y="34" font-size="8" fill="#7c3aed">Routes directly to backend Application Load Balancer</text>
+        <text x="48" y="45" font-size="8" font-family="monospace" fill="#0284c7">Path: /api/* (Spring Boot REST Endpoints)</text>
+      </g>
+    </g>
 
-        <!-- Components inside Control Plane -->
-        <rect x="8" y="34" width="109" height="32" rx="4" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
-        <text x="62" y="48" font-size="9" font-weight="700" fill="#1e293b" text-anchor="middle">Task</text>
-        <text x="62" y="60" font-size="8" fill="#64748b" text-anchor="middle">Scheduler</text>
+    <!-- Forward Dynamic API Arrow from CloudFront down to ALB -->
+    <path d="M 640 170 L 640 220" fill="none" stroke="#7c3aed" stroke-width="2" marker-end="url(#arrow-purple)"/>
+    <text x="650" y="200" font-size="9" font-weight="800" fill="#7c3aed">Forward Dynamic /api/*</text>
 
-        <rect x="8" y="74" width="109" height="32" rx="4" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
-        <text x="62" y="88" font-size="9" font-weight="700" fill="#1e293b" text-anchor="middle">API server /</text>
-        <text x="62" y="100" font-size="8" fill="#64748b" text-anchor="middle">ECS Agent</text>
 
-        <rect x="8" y="114" width="109" height="32" rx="4" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
-        <text x="62" y="128" font-size="9" font-weight="700" fill="#1e293b" text-anchor="middle">Controller</text>
-        <text x="62" y="140" font-size="8" fill="#64748b" text-anchor="middle">Manager</text>
+    <!-- ===================================================================== -->
+    <!-- 3=TIER VIRTUAL PRIVATE CLOUD (VPC: 10.0.0.0/16)                       -->
+    <!-- ===================================================================== -->
+    <g transform="translate(20, 185)">
+      <!-- VPC Container Outer Box -->
+      <rect x="0" y="0" width="840" height="470" rx="12" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.8"/>
 
-        <rect x="8" y="154" width="109" height="32" rx="4" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
-        <text x="62" y="168" font-size="9" font-weight="700" fill="#1e293b" text-anchor="middle">Argo-</text>
-        <text x="62" y="180" font-size="8" fill="#64748b" text-anchor="middle">Controller</text>
+      <!-- VPC Header -->
+      <text x="25" y="24" font-size="13" font-weight="900" fill="#1e3a8a">3-Tier Virtual Private Cloud (VPC: 10.0.0.0/16) - us-east-1</text>
+      <text x="25" y="38" font-size="9" fill="#3b82f6">Dual-AZ High Availability (us-east-1a, us-east-1b) | Network Isolation &amp; Strict Security Groups</text>
 
-        <rect x="8" y="194" width="109" height="32" rx="4" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
-        <text x="62" y="208" font-size="9" font-weight="700" fill="#1e293b" text-anchor="middle">Task IAM</text>
-        <text x="62" y="220" font-size="8" fill="#64748b" text-anchor="middle">Roles</text>
+      <!-- ================================================= -->
+      <!-- TIER 1: PUBLIC SUBNETS (ALB & NAT GATEWAY)        -->
+      <!-- ================================================= -->
+      <g transform="translate(15, 48)">
+        <rect x="0" y="0" width="810" height="98" rx="8" fill="#ffffff" stroke="#93c5fd" stroke-width="1.2"/>
+        <rect x="0" y="0" width="810" height="20" rx="8" fill="#dbeafe"/>
+        <text x="15" y="14" font-size="9" font-weight="800" fill="#1e3a8a">TIER 1: PUBLIC SUBNETS (10.0.1.0/24 &amp; 10.0.2.0/24) - Ingress &amp; Egress Routing</text>
 
-        <rect x="8" y="234" width="109" height="32" rx="4" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
-        <text x="62" y="248" font-size="9" font-weight="700" fill="#1e293b" text-anchor="middle">Service</text>
-        <text x="62" y="260" font-size="8" fill="#64748b" text-anchor="middle">Discovery</text>
+        <!-- ALB Component Card -->
+        <g transform="translate(15, 28)">
+          <rect x="0" y="0" width="460" height="60" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+          <use href="#icon-alb" x="10" y="14" width="32" height="32"/>
+          <text x="48" y="22" font-size="10" font-weight="800" fill="#0f172a">Application Load Balancer (ALB) - hospital-system-dev-alb</text>
+          <text x="48" y="35" font-size="9" fill="#64748b">Dual-AZ Public Listeners: Port 80 (HTTP) &amp; Port 443 (HTTPS)</text>
+          <text x="48" y="47" font-size="8" fill="#059669">Target Group: Forward traffic to ECS Fargate on Port 8080</text>
+        </g>
+
+        <!-- ACM SSL Certificate Card -->
+        <g transform="translate(490, 28)">
+          <rect x="0" y="0" width="165" height="60" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+          <use href="#icon-ssl" x="8" y="15" width="28" height="28"/>
+          <text x="42" y="22" font-size="9" font-weight="800" fill="#0f172a">AWS ACM SSL</text>
+          <text x="42" y="34" font-size="8" fill="#16a34a">Amazon Issued</text>
+          <text x="42" y="46" font-size="8" font-family="monospace" fill="#0284c7">*.devopsstandard.name.ng</text>
+        </g>
+
+        <!-- NAT Gateway Card -->
+        <g transform="translate(668, 28)">
+          <rect x="0" y="0" width="130" height="60" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+          <circle cx="20" cy="30" r="12" fill="#ea580c"/>
+          <path d="M14 30h12M22 26l4 4-4 4" stroke="#ffffff" stroke-width="2" fill="none"/>
+          <text x="38" y="24" font-size="9" font-weight="800" fill="#0f172a">NAT Gateway</text>
+          <text x="38" y="36" font-size="8" fill="#64748b">EIP: 32.201.187.56</text>
+          <text x="38" y="48" font-size="7" fill="#ea580c">Outbound Egress</text>
+        </g>
       </g>
 
-      <!-- Sub-Box 2: Worker Nodes / Tasks -->
-      <g transform="translate(145, 50)">
-        <rect x="0" y="0" width="130" height="275" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="3,3"/>
-        <text x="65" y="22" font-size="11" font-weight="700" fill="#0f172a" text-anchor="middle">Worker Nodes/Tasks</text>
+      <!-- Flow Arrow: ALB down to ECS Fargate -->
+      <path d="M 245 146 L 245 178" fill="none" stroke="#0284c7" stroke-width="2" marker-end="url(#arrow-blue)"/>
+      <text x="255" y="165" font-size="9" font-weight="700" fill="#0284c7">Forward Port 8080</text>
 
-        <!-- Container Runtime Banner -->
-        <rect x="10" y="34" width="110" height="22" rx="4" fill="#f1f5f9"/>
-        <text x="65" y="48" font-size="8" font-weight="700" fill="#475569" text-anchor="middle">container runtime</text>
+      <!-- ================================================= -->
+      <!-- TIER 2: PRIVATE APP SUBNETS (ECS FARGATE TASKS)   -->
+      <!-- ================================================= -->
+      <g transform="translate(15, 180)">
+        <rect x="0" y="0" width="810" height="135" rx="8" fill="#ecfdf5" stroke="#86efac" stroke-width="1.5"/>
+        <rect x="0" y="0" width="810" height="20" rx="8" fill="#a7f3d0"/>
+        <text x="15" y="14" font-size="9" font-weight="800" fill="#065f46">TIER 2: PRIVATE APPLICATION SUBNETS (10.0.11.0/24 &amp; 10.0.12.0/24) - Isolated Microservices</text>
 
-        <!-- Nested pod cards -->
-        <g transform="translate(10, 64)">
-          <rect x="0" y="0" width="110" height="96" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
-          <rect x="10" y="10" width="40" height="24" rx="4" fill="#f1f5f9" stroke="#cbd5e1"/>
-          <text x="30" y="26" font-size="9" font-weight="700" fill="#1e293b" text-anchor="middle">task</text>
-          <rect x="60" y="10" width="40" height="24" rx="4" fill="#f1f5f9" stroke="#cbd5e1"/>
-          <text x="80" y="26" font-size="9" font-weight="700" fill="#1e293b" text-anchor="middle">task</text>
+        <!-- ECS Cluster Header -->
+        <use href="#icon-ecs" x="15" y="28" width="30" height="30"/>
+        <text x="52" y="42" font-size="12" font-weight="800" fill="#0f172a">AWS ECS Fargate Cluster (hospital-system-dev-cluster)</text>
+        <text x="52" y="55" font-size="9" fill="#059669">Serverless Container Execution | 0.5 vCPU, 1GB RAM | Auto-Scales based on demand</text>
 
-          <rect x="25" y="44" width="60" height="42" rx="4" fill="#f1f5f9" stroke="#cbd5e1"/>
-          <text x="55" y="60" font-size="9" font-weight="700" fill="#0f172a" text-anchor="middle">Fargate</text>
-          <text x="55" y="74" font-size="8" fill="#0284c7" text-anchor="middle">MicroVM</text>
-        </g>
+        <!-- ECS Tasks (Spring Boot) Cards -->
+        <g transform="translate(15, 64)">
+          <!-- Task 1 (AZ us=east=1a) -->
+          <rect x="0" y="0" width="385" height="60" rx="6" fill="#ffffff" stroke="#a7f3d0" stroke-width="1" filter="url(#cardShadow)"/>
+          <circle cx="20" cy="20" r="10" fill="#10b981"/>
+          <text x="20" y="24" font-size="8" font-weight="900" fill="#ffffff" text-anchor="middle">AZ-a</text>
+          <text x="38" y="18" font-size="10" font-weight="800" fill="#0f172a">hospital-backend-task-1 (Spring Boot 8)</text>
+          <text x="38" y="30" font-size="8" font-family="monospace" fill="#059669">Port 8080 | Health: /api/health (HTTP 200 OK)</text>
+          <text x="38" y="42" font-size="8" fill="#64748b">Security Group: Ingress restricted strictly to ALB SG</text>
+          <text x="38" y="53" font-size="8" font-weight="700" fill="#0284c7">Zero Idle VM Waste: Cost drops to zero off-peak!</text>
 
-        <!-- Rolling Deploy info card -->
-        <g transform="translate(10, 170)">
-          <rect x="0" y="0" width="110" height="92" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
-          <text x="55" y="22" font-size="9" font-weight="700" fill="#0f172a" text-anchor="middle">Backend Task</text>
-          <text x="55" y="38" font-size="8" font-weight="600" fill="#059669" text-anchor="middle">Spring Boot</text>
-          <text x="55" y="52" font-size="8" fill="#64748b" text-anchor="middle">Port: 8080</text>
-          <text x="55" y="68" font-size="8" fill="#2563eb" text-anchor="middle">/api/health</text>
-          <text x="55" y="82" font-size="7" font-weight="700" fill="#7c3aed" text-anchor="middle">0-Downtime</text>
+          <!-- Task 2 (AZ us=east=1b) -->
+          <rect x="400" y="0" width="385" height="60" rx="6" fill="#ffffff" stroke="#a7f3d0" stroke-width="1" filter="url(#cardShadow)"/>
+          <circle cx="420" cy="20" r="10" fill="#10b981"/>
+          <text x="420" y="24" font-size="8" font-weight="900" fill="#ffffff" text-anchor="middle">AZ-b</text>
+          <text x="438" y="18" font-size="10" font-weight="800" fill="#0f172a">hospital-backend-task-2 (High Availability)</text>
+          <text x="438" y="30" font-size="8" font-family="monospace" fill="#059669">Port 8080 | Elastic Autoscaling: 1 to 5 Tasks</text>
+          <text x="438" y="42" font-size="8" fill="#64748b">Zero-Downtime Rolling Update: Minimum 100% / Max 200%</text>
+          <text x="438" y="53" font-size="8" font-weight="700" fill="#7c3aed">Non-Root User: Runs as unprivileged appuser (UID 1000)</text>
         </g>
       </g>
 
-      <!-- Sub-Box 3: Namespace: hospital-dev -->
-      <g transform="translate(285, 50)">
-        <rect x="0" y="0" width="235" height="275" rx="8" fill="#ecfdf5" stroke="#86efac" stroke-width="1.8"/>
-        <text x="117" y="22" font-size="11" font-weight="800" fill="#065f46" text-anchor="middle">Namespace: hospital-dev</text>
+      <!-- Flow Arrow: ECS down to RDS Database -->
+      <path d="M 245 315 L 245 348" fill="none" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow-blue)"/>
+      <text x="255" y="335" font-size="9" font-weight="700" fill="#2563eb">JDBC MySQL Port 3306</text>
 
-        <!-- Pod 1: frontend -->
-        <g transform="translate(20, 36)">
-          <use href="#pod-badge" x="22" y="0"/>
-          <text x="39" y="48" font-size="10" font-weight="800" fill="#0f172a" text-anchor="middle">frontend</text>
-          <text x="39" y="60" font-size="8" fill="#64748b" text-anchor="middle">React 18 SPA</text>
+      <!-- Pull Image Arrow: Amazon ECR down into ECS Fargate -->
+      <path d="M 640 0 C 640 40, 480 60, 480 180" fill="none" stroke="#ea580c" stroke-width="1.8" stroke-dasharray="4,4" marker-end="url(#arrow-orange)"/>
+      <text x="550" y="40" font-size="9" font-weight="800" fill="#ea580c">pull image</text>
+
+      <!-- ================================================= -->
+      <!-- TIER 3: PRIVATE DATABASE SUBNETS (AMAZON RDS)     -->
+      <!-- ================================================= -->
+      <g transform="translate(15, 350)">
+        <rect x="0" y="0" width="810" height="105" rx="8" fill="#faf5ff" stroke="#d8b4fe" stroke-width="1.5"/>
+        <rect x="0" y="0" width="810" height="20" rx="8" fill="#e9d5ff"/>
+        <text x="15" y="14" font-size="9" font-weight="800" fill="#6b21a8">TIER 3: PRIVATE DATABASE SUBNETS (10.0.21.0/24 &amp; 10.0.22.0/24) - Isolated Data Persistence</text>
+
+        <!-- RDS Component Card -->
+        <g transform="translate(15, 28)">
+          <use href="#icon-rds" x="0" y="14" width="36" height="36"/>
+          <text x="46" y="24" font-size="12" font-weight="800" fill="#0f172a">Amazon RDS MySQL 8.0 (Multi-AZ High Availability)</text>
+          <text x="46" y="37" font-size="9" fill="#64748b">Endpoint: hospital-system-dev-mysql.cun2gy0uqpmw.us-east-1.rds.amazonaws.com:3306</text>
+          <text x="46" y="50" font-size="8" fill="#16a34a">✓ Multi-AZ Failover across Availability Zones</text>
+          <text x="46" y="62" font-size="8" fill="#7c3aed">✓ Zero Public Route: Completely isolated from internet; accepts traffic ONLY from ECS SG</text>
         </g>
 
-        <!-- Pod 2: backend service -->
-        <g transform="translate(135, 36)">
-          <use href="#pod-badge" x="22" y="0"/>
-          <text x="39" y="48" font-size="10" font-weight="800" fill="#0f172a" text-anchor="middle">hospital-api</text>
-          <text x="39" y="60" font-size="8" fill="#64748b" text-anchor="middle">Spring Boot</text>
-        </g>
-
-        <!-- Pod 3: rds database -->
-        <g transform="translate(20, 160)">
-          <use href="#pod-badge" x="22" y="0"/>
-          <text x="39" y="48" font-size="10" font-weight="800" fill="#0f172a" text-anchor="middle">database</text>
-          <text x="39" y="60" font-size="8" fill="#64748b" text-anchor="middle">RDS MySQL</text>
-        </g>
-
-        <!-- Pod 4: secrets/kms -->
-        <g transform="translate(135, 160)">
-          <use href="#pod-badge" x="22" y="0"/>
-          <text x="39" y="48" font-size="10" font-weight="800" fill="#0f172a" text-anchor="middle">secrets</text>
-          <text x="39" y="60" font-size="8" fill="#64748b" text-anchor="middle">AWS KMS</text>
+        <!-- KMS Encryption Badge Card -->
+        <g transform="translate(560, 30)">
+          <rect x="0" y="0" width="235" height="62" rx="6" fill="#ffffff" stroke="#d8b4fe" stroke-width="1"/>
+          <use href="#icon-kms" x="10" y="16" width="30" height="30"/>
+          <text x="46" y="22" font-size="10" font-weight="800" fill="#0f172a">AWS KMS Key Encryption</text>
+          <text x="46" y="34" font-size="8" fill="#ea580c">KMS Customer Managed Key</text>
+          <text x="46" y="45" font-size="8" fill="#64748b">AES-256 Encryption at Rest</text>
+          <text x="46" y="56" font-size="8" fill="#16a34a">TLS/SSL In-Transit Encryption</text>
         </g>
       </g>
     </g>
 
 
-    <!-- RIGHT SIDE INSIDE AWS: MONITORING & ARGO CD -->
-
-    <!-- Upper-Right Box: Namespace: monitoring -->
-    <g transform="translate(565, 58)">
-      <rect x="0" y="0" width="275" height="175" rx="12" fill="#fff7ed" stroke="#fdba74" stroke-width="1.8"/>
-      <text x="137" y="24" font-size="11" font-weight="800" fill="#9a3412" text-anchor="middle">Namespace: monitoring</text>
-
-      <!-- Prometheus & Alertmanager -->
-      <g transform="translate(30, 48)">
-        <use href="#icon-prometheus" x="18" y="0" width="36" height="36"/>
-        <text x="36" y="52" font-size="10" font-weight="700" fill="#0f172a" text-anchor="middle">Prometheus</text>
-        <text x="36" y="65" font-size="9" fill="#64748b" text-anchor="middle">&amp; Alertmanager</text>
-      </g>
-
-      <!-- Dashed Arrow to Grafana -->
-      <path d="M 120 66 L 165 66" fill="none" stroke="#ea580c" stroke-width="1.5" stroke-dasharray="3,3" marker-end="url(#arrow-orange)"/>
-
-      <!-- Grafana -->
-      <g transform="translate(175, 48)">
-        <use href="#icon-grafana" x="12" y="0" width="36" height="36"/>
-        <text x="30" y="52" font-size="10" font-weight="700" fill="#0f172a" text-anchor="middle">Grafana</text>
-        <text x="30" y="65" font-size="9" fill="#64748b" text-anchor="middle">Dashboards</text>
-      </g>
+    <!-- ===================================================================== -->
+    <!-- TERRAFORM REMOTE STATE & LOCKING CARD                                 -->
+    <!-- ===================================================================== -->
+    <g transform="translate(20, 665)">
+      <rect x="0" y="0" width="840" height="50" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2" filter="url(#cardShadow)"/>
+      <use href="#icon-terraform" x="14" y="10" width="24" height="28"/>
+      <text x="48" y="24" font-size="11" font-weight="800" fill="#0f172a">Terraform Remote State &amp; Concurrency Locking (GitOps State Tier)</text>
+      <text x="48" y="38" font-size="9" fill="#64748b">S3 Backend: <tspan font-family="monospace" fill="#0284c7">hospital-system-terraform-state-dev</tspan> (Versioned &amp; KMS Encrypted) | DynamoDB Table: <tspan font-family="monospace" fill="#7c3aed">hospital-system-tf-lock-dev</tspan></text>
     </g>
 
-    <!-- Lower-Right Box: Namespace: argocd -->
-    <g transform="translate(565, 250)">
-      <rect x="0" y="0" width="275" height="148" rx="12" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.8"/>
-      <text x="137" y="24" font-size="11" font-weight="800" fill="#1e3a8a" text-anchor="middle">Namespace: argocd</text>
-
-      <!-- Argo CD Octopus + Text -->
-      <g transform="translate(45, 42)">
-        <use href="#icon-argocd" x="0" y="0" width="46" height="42"/>
-        <text x="65" y="22" font-size="17" font-weight="900" fill="#0f172a">Argo CD</text>
-        <text x="65" y="40" font-size="13" font-weight="700" fill="#0284c7">GitOps</text>
-      </g>
-
-      <!-- GitOps sync status bar -->
-      <rect x="25" y="100" width="225" height="34" rx="4" fill="#ffffff" stroke="#bfdbfe" stroke-width="1"/>
-      <text x="137" y="115" font-size="9" font-weight="700" fill="#0f172a" text-anchor="middle">Terraform State Sync (S3/DynamoDB)</text>
-      <text x="137" y="127" font-size="8" fill="#16a34a" text-anchor="middle">Automated Reconciliation &amp; Drift Detection</text>
+    <!-- ===================================================================== -->
+    <!-- URL PILL: devopsstandard.name.ng                                      -->
+    <!-- ===================================================================== -->
+    <g transform="translate(440, 755)">
+      <rect x="-80" y="-18" width="36" height="36" rx="18" fill="#0f172a"/>
+      <text x="-62" y="5" font-size="11" font-weight="900" fill="#ffffff" text-anchor="middle">URL</text>
+      <text x="-30" y="6" font-size="17" font-weight="900" font-family="monospace" fill="#0f172a">https://devopsstandard.name.ng</text>
+      <text x="-30" y="24" font-size="11" font-weight="700" font-family="monospace" fill="#0284c7">API: https://api.devopsstandard.name.ng</text>
     </g>
-
-
-    <!-- INGRESS & LOAD BALANCING (BELOW CLUSTER) -->
-    <g transform="translate(25, 415)">
-      <!-- AWS Application Load Balancer -->
-      <g transform="translate(35, 0)">
-        <rect x="0" y="0" width="40" height="40" rx="8" fill="#4f46e5"/>
-        <circle cx="12" cy="12" r="3.5" fill="#ffffff"/>
-        <circle cx="12" cy="28" r="3.5" fill="#ffffff"/>
-        <circle cx="28" cy="20" r="3.5" fill="#ffffff"/>
-        <path d="M16 12h4a3 3 0 0 1 3 3v2m0 0v2a3 3 0 0 1-3 3h-4" fill="none" stroke="#ffffff" stroke-width="2"/>
-        <text x="20" y="55" font-size="9" font-weight="700" fill="#0f172a" text-anchor="middle">AWS External</text>
-        <text x="20" y="67" font-size="9" font-weight="700" fill="#0f172a" text-anchor="middle">Load Balancer</text>
-      </g>
-
-      <!-- TLS/SSL AWS-Managed ACM Certificate -->
-      <g transform="translate(155, 0)">
-        <rect x="0" y="0" width="40" height="40" rx="8" fill="#16a34a"/>
-        <path d="M16 18v-3a4 4 0 0 1 8 0v3m-8 0h8a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-8a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2z" fill="none" stroke="#ffffff" stroke-width="2"/>
-        <text x="20" y="55" font-size="9" font-weight="700" fill="#0f172a" text-anchor="middle">TLS/SSL</text>
-        <text x="20" y="67" font-size="8" fill="#64748b" text-anchor="middle">AWS Certificate</text>
-      </g>
-
-      <!-- Small Client Request Badge -->
-      <g transform="translate(100, 75)">
-        <circle cx="15" cy="15" r="14" fill="#0284c7"/>
-        <path d="M10 15h10M16 11l4 4-4 4" fill="none" stroke="#ffffff" stroke-width="2"/>
-      </g>
-
-      <!-- Arrow from ALB & ACM to cluster -->
-      <path d="M 55 0 L 55 -17" fill="none" stroke="#0f172a" stroke-width="1.8" marker-end="url(#arrow-black)"/>
-      <path d="M 175 0 L 175 -17" fill="none" stroke="#0f172a" stroke-width="1.8" marker-end="url(#arrow-black)"/>
-    </g>
-
-    <!-- URL PILL: devopsstandard.name.ng -->
-    <g transform="translate(435, 520)">
-      <!-- URL circle -->
-      <circle cx="20" cy="15" r="15" fill="#ffffff" stroke="#0f172a" stroke-width="1.8"/>
-      <text x="20" y="19" font-size="10" font-weight="800" fill="#0f172a" text-anchor="middle">URL</text>
-
-      <!-- Domain pill text -->
-      <text x="45" y="20" font-size="13" font-weight="800" font-family="monospace" fill="#0f172a">devopsstandard.name.ng</text>
-    </g>
-
-    <!-- Connecting path from load balancer to URL pill -->
-    <path d="M 140 500 L 140 535 L 435 535" fill="none" stroke="#0f172a" stroke-width="1.5" stroke-dasharray="3,3"/>
   </g>
 
 
-  <!-- 5. BOTTOM SECTION: DNS TABLE & WHOGOHOST INTEGRATION -->
+  <!-- ========================================================================= -->
+  <!-- BOTTOM SECTION: WHOGOHOST DNS RECORD TABLE & RESOLUTION                   -->
+  <!-- ========================================================================= -->
 
-  <g transform="translate(480, 875)">
+  <g transform="translate(470, 905)">
     <!-- Blue DNS Circle Badge -->
     <circle cx="25" cy="25" r="22" fill="#0284c7" stroke="#0f172a" stroke-width="2"/>
     <text x="25" y="31" font-size="13" font-weight="900" fill="#ffffff" text-anchor="middle">DNS</text>
 
     <!-- DNS Record Table -->
     <g transform="translate(60, 0)">
-      <rect x="0" y="0" width="370" height="95" rx="6" fill="#ffffff" stroke="#0f172a" stroke-width="1.8"/>
+      <rect x="0" y="0" width="800" height="80" rx="6" fill="#ffffff" stroke="#0f172a" stroke-width="1.8"/>
 
       <!-- Table Header -->
-      <line x1="0" y1="28" x2="370" y2="28" stroke="#0f172a" stroke-width="1.5"/>
-      <text x="185" y="19" font-size="11" font-weight="800" fill="#0f172a" text-anchor="middle">DNS Record</text>
+      <line x1="0" y1="24" x2="800" y2="24" stroke="#0f172a" stroke-width="1.5"/>
+      <text x="400" y="16" font-size="11" font-weight="800" fill="#0f172a" text-anchor="middle">Whogohost External DNS Records (Live Domain Resolution)</text>
 
-      <!-- Columns -->
-      <rect x="0" y="28" width="370" height="22" fill="#f8fafc"/>
-      <line x1="0" y1="50" x2="370" y2="50" stroke="#0f172a" stroke-width="1.2"/>
-      <line x1="180" y1="28" x2="180" y2="95" stroke="#0f172a" stroke-width="1.2"/>
+      <!-- Table Columns -->
+      <rect x="0" y="24" width="800" height="20" fill="#f8fafc"/>
+      <line x1="0" y1="44" x2="800" y2="44" stroke="#0f172a" stroke-width="1.2"/>
+      <line x1="250" y1="24" x2="250" y2="80" stroke="#0f172a" stroke-width="1.2"/>
+      <line x1="380" y1="24" x2="380" y2="80" stroke="#0f172a" stroke-width="1.2"/>
 
-      <text x="90" y="43" font-size="10" font-weight="700" fill="#1e293b" text-anchor="middle">Record</text>
-      <text x="275" y="43" font-size="10" font-weight="700" fill="#1e293b" text-anchor="middle">IP Address / Target</text>
+      <text x="125" y="37" font-size="9" font-weight="700" fill="#1e293b" text-anchor="middle">Domain Name</text>
+      <text x="315" y="37" font-size="9" font-weight="700" fill="#1e293b" text-anchor="middle">Record Type</text>
+      <text x="590" y="37" font-size="9" font-weight="700" fill="#1e293b" text-anchor="middle">Target Value / Destination</text>
 
-      <!-- Row 1 -->
-      <text x="14" y="68" font-size="10" font-family="monospace" font-weight="700" fill="#0f172a">devopsstandard.name.ng</text>
-      <text x="190" y="68" font-size="10" font-family="monospace" fill="#0284c7">Load Balancer IP</text>
+      <!-- Row 1: Root & WWW -->
+      <text x="15" y="58" font-size="9" font-family="monospace" font-weight="700" fill="#0f172a">devopsstandard.name.ng / www</text>
+      <text x="315" y="58" font-size="9" font-family="monospace" fill="#0284c7" text-anchor="middle">CNAME / ALIAS</text>
+      <text x="395" y="58" font-size="9" font-family="monospace" fill="#0f172a">d1v3mxc3uivi1w.cloudfront.net (CloudFront Edge)</text>
 
-      <!-- Row 2 -->
-      <line x1="0" y1="72" x2="370" y2="72" stroke="#e2e8f0" stroke-width="1"/>
-      <text x="14" y="87" font-size="9" font-family="monospace" fill="#64748b">api.devopsstandard.name.ng</text>
-      <text x="190" y="87" font-size="9" font-family="monospace" fill="#4f46e5">ALB Target DNS</text>
+      <!-- Row 2: API Subdomain -->
+      <line x1="0" y1="62" x2="800" y2="62" stroke="#e2e8f0" stroke-width="1"/>
+      <text x="15" y="74" font-size="9" font-family="monospace" font-weight="700" fill="#0f172a">api.devopsstandard.name.ng</text>
+      <text x="315" y="74" font-size="9" font-family="monospace" fill="#7c3aed" text-anchor="middle">CNAME</text>
+      <text x="395" y="74" font-size="9" font-family="monospace" fill="#0f172a">hospital-system-dev-alb-1614611948.us-east-1.elb.amazonaws.com</text>
     </g>
 
     <!-- Dashed Line connecting DNS Table to URL Pill -->
-    <path d="M 245 0 L 245 -155 L 435 -155" fill="none" stroke="#0f172a" stroke-width="1.5" stroke-dasharray="3,3"/>
+    <path d="M 460 0 L 460 -15" fill="none" stroke="#0f172a" stroke-width="1.5" stroke-dasharray="3,3"/>
   </g>
 
 
-  <!-- 6. RIGHT COLUMN: PERSONAS / INTERNET USERS & DEVOPS SRE -->
+  <!-- ========================================================================= -->
+  <!-- COLUMN 3: CONSUMERS & DEVOPS SRE OPERATIONS (RIGHT)                       -->
+  <!-- ========================================================================= -->
 
-  <!-- Persona 1: Patients / Internet Users (Upper Right) -->
-  <g transform="translate(1480, 390)">
-    <!-- Head Outline -->
-    <circle cx="30" cy="22" r="16" fill="none" stroke="#0f172a" stroke-width="2.5"/>
-    <!-- Body Outline Arc -->
-    <path d="M 8 62 C 8 42, 52 42, 52 62" fill="none" stroke="#0f172a" stroke-width="2.5"/>
+  <!-- Persona 1: Patients & Healthcare Web Users (Top Right) -->
+  <g transform="translate(1410, 160)">
+    <!-- Outline Icon -->
+    <circle cx="30" cy="24" r="18" fill="none" stroke="#0f172a" stroke-width="2.5"/>
+    <path d="M 6 68 C 6 46, 54 46, 54 68" fill="none" stroke="#0f172a" stroke-width="2.5"/>
 
     <!-- Labels -->
-    <text x="30" y="88" font-size="14" font-weight="800" fill="#0f172a" text-anchor="middle">Shoppers /</text>
-    <text x="30" y="104" font-size="14" font-weight="800" fill="#0f172a" text-anchor="middle">Internet Users</text>
+    <text x="30" y="96" font-size="14" font-weight="900" fill="#0f172a" text-anchor="middle">Patients /</text>
+    <text x="30" y="112" font-size="14" font-weight="900" fill="#0f172a" text-anchor="middle">Web Users</text>
+    <text x="30" y="128" font-size="9" fill="#64748b" text-anchor="middle">Healthcare Portal Consumers</text>
   </g>
 
-  <!-- Flow Line: Users to URL Pill -->
-  <path d="M 1470 425 C 1370 425, 1180 720, 1100 720" fill="none" stroke="#0f172a" stroke-width="1.8" stroke-dasharray="4,4" marker-end="url(#arrow-black)"/>
-  <text x="1410" y="415" font-size="11" font-weight="700" fill="#0f172a" text-anchor="middle">browse the web store</text>
+  <!-- Flow Line from Users to URL Pill -->
+  <path d="M 1400 200 C 1350 200, 1100 200, 890 200" fill="none" stroke="#0f172a" stroke-width="2" stroke-dasharray="4,4" marker-end="url(#arrow-black)"/>
+  <text x="1145" y="190" font-size="10" font-weight="800" fill="#0f172a" text-anchor="middle">browse hospital portal over HTTPS</text>
 
 
-  <!-- Persona 2: DevOps / SRE Engineers (Lower Right) -->
-  <g transform="translate(1480, 600)">
-    <!-- Head Outline -->
-    <circle cx="30" cy="22" r="16" fill="none" stroke="#0f172a" stroke-width="2.5"/>
-    <!-- Body Outline Arc -->
-    <path d="M 8 62 C 8 42, 52 42, 52 62" fill="none" stroke="#0f172a" stroke-width="2.5"/>
+  <!-- Middle Box: Amazon CloudWatch & Observability -->
+  <g transform="translate(1360, 360)">
+    <rect x="0" y="0" width="345" height="260" rx="12" fill="#fffbeb" stroke="#fde68a" stroke-width="1.8" filter="url(#cardShadow)"/>
+    <use href="#icon-cloudwatch" x="16" y="14" width="30" height="30"/>
+    <text x="54" y="27" font-size="13" font-weight="900" fill="#92400e">Amazon CloudWatch</text>
+    <text x="54" y="40" font-size="9" fill="#b45309">Observability, Metrics, Logs &amp; Alarms</text>
+
+    <!-- Sub=Item 1: Container Insights -->
+    <g transform="translate(14, 52)">
+      <rect x="0" y="0" width="317" height="44" rx="6" fill="#ffffff" stroke="#fde68a" stroke-width="1"/>
+      <circle cx="16" cy="22" r="6" fill="#e11d48"/>
+      <text x="30" y="18" font-size="10" font-weight="800" fill="#0f172a">ECS Container Insights</text>
+      <text x="30" y="32" font-size="8" fill="#64748b">CPU &amp; Memory Utilization, Task Count Tracking</text>
+    </g>
+
+    <!-- Sub=Item 2: Log Groups -->
+    <g transform="translate(14, 102)">
+      <rect x="0" y="0" width="317" height="44" rx="6" fill="#ffffff" stroke="#fde68a" stroke-width="1"/>
+      <circle cx="16" cy="22" r="6" fill="#0284c7"/>
+      <text x="30" y="18" font-size="10" font-weight="800" fill="#0f172a">Centralized CloudWatch Log Groups</text>
+      <text x="30" y="32" font-size="8" font-family="monospace" fill="#0284c7">/ecs/hospital-system-dev-backend (stdout)</text>
+    </g>
+
+    <!-- Sub=Item 3: ALB Health & Metrics -->
+    <g transform="translate(14, 152)">
+      <rect x="0" y="0" width="317" height="44" rx="6" fill="#ffffff" stroke="#fde68a" stroke-width="1"/>
+      <circle cx="16" cy="22" r="6" fill="#16a34a"/>
+      <text x="30" y="18" font-size="10" font-weight="800" fill="#0f172a">ALB Target Group Health Checks</text>
+      <text x="30" y="32" font-size="8" fill="#64748b">HTTP 200 OK latency, 4xx/5xx Error Spike Alarms</text>
+    </g>
+
+    <!-- Sub=Item 4: RDS Alarms -->
+    <g transform="translate(14, 202)">
+      <rect x="0" y="0" width="317" height="44" rx="6" fill="#ffffff" stroke="#fde68a" stroke-width="1"/>
+      <circle cx="16" cy="22" r="6" fill="#7c3aed"/>
+      <text x="30" y="18" font-size="10" font-weight="800" fill="#0f172a">RDS Performance &amp; Connection Alarms</text>
+      <text x="30" y="32" font-size="8" fill="#64748b">Database connections, disk IOPS &amp; free storage</text>
+    </g>
+  </g>
+
+  <!-- Telemetry Connector Arrow: VPC to CloudWatch -->
+  <path d="M 1290 490 L 1360 490" fill="none" stroke="#ea580c" stroke-width="1.8" stroke-dasharray="4,4" marker-end="url(#arrow-orange)"/>
+  <text x="1325" y="480" font-size="9" font-weight="800" fill="#ea580c" text-anchor="middle">Telemetry</text>
+
+
+  <!-- Persona 2: Cloud Architect & DevOps SRE (Bottom Right) -->
+  <g transform="translate(1410, 680)">
+    <!-- Outline Icon -->
+    <circle cx="30" cy="24" r="18" fill="none" stroke="#0f172a" stroke-width="2.5"/>
+    <path d="M 6 68 C 6 46, 54 46, 54 68" fill="none" stroke="#0f172a" stroke-width="2.5"/>
 
     <!-- Labels -->
-    <text x="30" y="88" font-size="14" font-weight="800" fill="#0f172a" text-anchor="middle">DevOps / SRE</text>
-    <text x="30" y="104" font-size="14" font-weight="800" fill="#0f172a" text-anchor="middle">Engineers</text>
+    <text x="30" y="96" font-size="14" font-weight="900" fill="#0f172a" text-anchor="middle">Cloud Architects &amp;</text>
+    <text x="30" y="112" font-size="14" font-weight="900" fill="#0284c7" text-anchor="middle">DevOps SRE</text>
+    <text x="30" y="128" font-size="9" fill="#64748b" text-anchor="middle">Deploy, Monitor &amp; Audit</text>
   </g>
 
-  <!-- Flow Line: DevOps to Argo CD GitOps & Monitoring -->
-  <path d="M 1470 635 C 1390 635, 1370 470, 1320 470" fill="none" stroke="#0f172a" stroke-width="1.8" stroke-dasharray="4,4" marker-end="url(#arrow-black)"/>
-  <text x="1415" y="625" font-size="11" font-weight="700" fill="#0f172a" text-anchor="middle">managing GitOps</text>
+  <!-- Flow Line from SRE to CloudWatch -->
+  <path d="M 1440 680 L 1440 625" fill="none" stroke="#0f172a" stroke-width="1.8" stroke-dasharray="4,4" marker-end="url(#arrow-black)"/>
+  <text x="1445" y="655" font-size="9" font-weight="700" fill="#0f172a">inspect metrics &amp; logs</text>
 
-
-  <!-- 7. CROSS-CONNECTING ARROWS -->
-
-  <!-- Push Image: Job One Image Sign to ECR -->
-  <path d="M 445 540 C 475 540, 480 115, 500 95" fill="none" stroke="#0284c7" stroke-width="1.8" stroke-dasharray="4,4" marker-end="url(#arrow-blue)"/>
-  <text x="490" y="115" font-size="10" font-weight="700" fill="#0284c7" text-anchor="end">push image</text>
-
-  <!-- Pull Image: ECR to Worker Nodes/Pods -->
-  <path d="M 535 95 C 555 110, 560 140, 560 290" fill="none" stroke="#0284c7" stroke-width="1.8" stroke-dasharray="4,4" marker-end="url(#arrow-blue)"/>
-  <text x="560" y="160" font-size="10" font-weight="700" fill="#0284c7" text-anchor="end">pull image</text>
-
-  <!-- Cold Archive Logs: Cluster to S3 -->
-  <path d="M 750 240 L 750 90" fill="none" stroke="#0284c7" stroke-width="1.5" stroke-dasharray="3,3" marker-end="url(#arrow-blue)"/>
-  <text x="750" y="215" font-size="9" fill="#0284c7" text-anchor="middle">[Cold Archive Logs]</text>
-
-  <!-- Job Two Trigger Workflow: Deploy Manifests to Cluster -->
-  <path d="M 455 770 C 475 770, 475 350, 495 310" fill="none" stroke="#0f172a" stroke-width="2" marker-end="url(#arrow-black)"/>
-  <text x="475" y="380" font-size="10" font-weight="700" fill="#0f172a" text-anchor="middle">trigger workflow</text>
-
-  <!-- CI/CD Notification to Top-Left Slack -->
-  <path d="M 280 185 C 280 120, 180 95, 120 95" fill="none" stroke="#0f172a" stroke-width="1.5" stroke-dasharray="3,3" marker-end="url(#arrow-black)"/>
-
-  <!-- Monitoring Webhook to Center-Right Slack -->
-  <path d="M 1045 45 C 990 45, 960 55, 925 55" fill="none" stroke="#0f172a" stroke-width="1.5" stroke-dasharray="3,3" marker-end="url(#arrow-black)"/>
-  <text x="980" y="38" font-size="9" font-weight="600" fill="#0f172a" text-anchor="middle">Prometheus alert webhook</text>
-  <text x="980" y="48" font-size="8" fill="#64748b" text-anchor="middle">(alert details &amp; suggested actions)</text>
-
-  <!-- Grafana Webhook to Slack -->
-  <path d="M 1210 45 C 1150 25, 1050 25, 925 65" fill="none" stroke="#0f172a" stroke-width="1.5" stroke-dasharray="3,3" marker-end="url(#arrow-black)"/>
-  <text x="1150" y="38" font-size="9" font-weight="600" fill="#0f172a" text-anchor="middle">Prometheus alert webhooks</text>
-  <text x="1150" y="48" font-size="8" fill="#64748b" text-anchor="middle">(remediation cards)</text>
-
-  <!-- Remediation Cards from Slack down to Cluster -->
-  <path d="M 870 80 C 870 140, 850 160, 850 240" fill="none" stroke="#0f172a" stroke-width="1.5" stroke-dasharray="3,3" marker-end="url(#arrow-black)"/>
-  <text x="860" y="170" font-size="8" font-weight="700" fill="#0f172a" text-anchor="middle">Remediation cards</text>
-  <text x="860" y="180" font-size="8" fill="#64748b" text-anchor="middle">(alert details &amp;</text>
-  <text x="860" y="190" font-size="8" fill="#64748b" text-anchor="middle">suggested actions)</text>
-
-  <!-- Remediation Cards from Grafana to Monitoring Namespace -->
-  <path d="M 1120 70 L 1120 240" fill="none" stroke="#0f172a" stroke-width="1.5" stroke-dasharray="3,3" marker-end="url(#arrow-black)"/>
-  <text x="1135" y="170" font-size="8" font-weight="700" fill="#0f172a">Remediation cards</text>
-  <text x="1135" y="180" font-size="8" fill="#64748b">(remediation canvas)</text>
-
-  <!-- Monitoring to Immutable Audit Log -->
-  <path d="M 1320 255 C 1340 255, 1340 70, 1360 55" fill="none" stroke="#0f172a" stroke-width="1.5" stroke-dasharray="3,3" marker-end="url(#arrow-black)"/>
+  <!-- Flow Line from SRE to Terraform State & GitOps -->
+  <path d="M 1400 730 C 1200 730, 1050 815, 870 815" fill="none" stroke="#0f172a" stroke-width="1.8" stroke-dasharray="4,4" marker-end="url(#arrow-black)"/>
+  <text x="1145" y="750" font-size="10" font-weight="800" fill="#0f172a" text-anchor="middle">manage IaC &amp; state via GitOps</text>
 
 </svg>
