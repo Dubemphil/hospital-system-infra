@@ -1,4 +1,4 @@
-name: Hospital System - Infrastructure CI/CD (Dev to Prod Promotion)
+name: Hospital System - Infrastructure CI/CD (Dev Deployment)
 
 on:
   push:
@@ -11,16 +11,8 @@ on:
       - master
   workflow_dispatch:
     inputs:
-      target_env:
-        description: 'Target Environment'
-        required: true
-        default: 'dev'
-        type: choice
-        options:
-          - dev
-          - prod
       action:
-        description: 'Action'
+        description: 'Action (plan or apply)'
         required: true
         default: 'apply'
         type: choice
@@ -84,24 +76,6 @@ jobs:
         with:
           terraform_version: ${{ env.TF_VERSION }}
 
-      # Diagnostic: Inspect exact GitHub OIDC Token Claims sent to AWS STS
-      - name: Diagnostic - Inspect GitHub OIDC Token Claims
-        run: |
-          python3 -c "
-          import os, urllib.request, json, base64
-          url = os.environ['ACTIONS_ID_TOKEN_REQUEST_URL'] + '&audience=sts.amazonaws.com'
-          req = urllib.request.Request(url, headers={'Authorization': 'Bearer ' + os.environ['ACTIONS_ID_TOKEN_REQUEST_TOKEN']})
-          resp = json.loads(urllib.request.urlopen(req).read().decode())
-          token = resp.get('value', '')
-          parts = token.split('.')
-          if len(parts) >= 2:
-              payload = parts[1] + '=' * (-len(parts[1]) % 4)
-              decoded = json.loads(base64.urlsafe_b64decode(payload))
-              print('=== DECODED GITHUB OIDC CLAIMS ===')
-              print(json.dumps(decoded, indent=2))
-          "
-        continue-on-error: true
-
       - name: Configure AWS Credentials via GitHub OIDC
         uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -129,7 +103,7 @@ jobs:
   deploy-dev:
     name: Deploy to DEV Environment
     needs: code-quality-and-security
-    if: (github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')) || (github.event_name == 'workflow_dispatch' && github.event.inputs.target_env == 'dev')
+    if: (github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')) || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     environment:
       name: development
@@ -146,24 +120,6 @@ jobs:
         with:
           terraform_version: ${{ env.TF_VERSION }}
 
-      # Diagnostic: Inspect exact GitHub OIDC Token Claims sent to AWS STS
-      - name: Diagnostic - Inspect GitHub OIDC Token Claims
-        run: |
-          python3 -c "
-          import os, urllib.request, json, base64
-          url = os.environ['ACTIONS_ID_TOKEN_REQUEST_URL'] + '&audience=sts.amazonaws.com'
-          req = urllib.request.Request(url, headers={'Authorization': 'Bearer ' + os.environ['ACTIONS_ID_TOKEN_REQUEST_TOKEN']})
-          resp = json.loads(urllib.request.urlopen(req).read().decode())
-          token = resp.get('value', '')
-          parts = token.split('.')
-          if len(parts) >= 2:
-              payload = parts[1] + '=' * (-len(parts[1]) % 4)
-              decoded = json.loads(base64.urlsafe_b64decode(payload))
-              print('=== DECODED GITHUB OIDC CLAIMS ===')
-              print(json.dumps(decoded, indent=2))
-          "
-        continue-on-error: true
-
       - name: Configure AWS Credentials via GitHub OIDC
         uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -178,66 +134,7 @@ jobs:
         run: terraform plan -no-color -out=tfplan
 
       - name: Terraform Apply (Dev)
+        if: github.event_name == 'push' || github.event.inputs.action == 'apply'
         run: |
           echo "Applying verified Terraform plan to Dev AWS Environment..."
-          terraform apply -auto-approve tfplan
-
-  # ============================================================================
-  # Stage 4: Promotion to PROD Environment (Guarded by GitHub Environment Approval)
-  # ============================================================================
-  deploy-prod:
-    name: Promote to PRODUCTION Environment
-    needs: deploy-dev
-    if: (github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')) || (github.event_name == 'workflow_dispatch' && github.event.inputs.target_env == 'prod')
-    runs-on: ubuntu-latest
-    environment:
-      name: production
-      url: https://devopsstandard.name.ng
-    defaults:
-      run:
-        working-directory: ./terraform/environments/prod
-
-    steps:
-      - name: Checkout Source Code
-        uses: actions/checkout@v4
-
-      - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v3
-        with:
-          terraform_version: ${{ env.TF_VERSION }}
-
-      # Diagnostic: Inspect exact GitHub OIDC Token Claims sent to AWS STS
-      - name: Diagnostic - Inspect GitHub OIDC Token Claims
-        run: |
-          python3 -c "
-          import os, urllib.request, json, base64
-          url = os.environ['ACTIONS_ID_TOKEN_REQUEST_URL'] + '&audience=sts.amazonaws.com'
-          req = urllib.request.Request(url, headers={'Authorization': 'Bearer ' + os.environ['ACTIONS_ID_TOKEN_REQUEST_TOKEN']})
-          resp = json.loads(urllib.request.urlopen(req).read().decode())
-          token = resp.get('value', '')
-          parts = token.split('.')
-          if len(parts) >= 2:
-              payload = parts[1] + '=' * (-len(parts[1]) % 4)
-              decoded = json.loads(base64.urlsafe_b64decode(payload))
-              print('=== DECODED GITHUB OIDC CLAIMS ===')
-              print(json.dumps(decoded, indent=2))
-          "
-        continue-on-error: true
-
-      - name: Configure AWS Credentials via GitHub OIDC
-        uses: aws-actions/configure-aws-credentials@v4
-        with:
-          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
-          aws-region: ${{ env.AWS_REGION }}
-          audience: sts.amazonaws.com
-
-      - name: Terraform Init (Prod S3 Backend)
-        run: terraform init
-
-      - name: Terraform Plan (Prod)
-        run: terraform plan -no-color -out=tfplan
-
-      - name: Terraform Apply (Prod)
-        run: |
-          echo "Promoting verified architecture to Production AWS Environment..."
           terraform apply -auto-approve tfplan

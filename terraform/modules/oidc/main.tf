@@ -32,8 +32,9 @@ resource "aws_iam_role" "backend_deployer" {
             "token.actions.githubusercontent.com:sub" = [
               "repo:${var.github_org}/${var.github_backend_repo}:*",
               "repo:${lower(var.github_org)}/${var.github_backend_repo}:*",
-              "repo:*:hospital-system-backend:*",
-              "repo:*:hospital_backend:*"
+              "repo:*${var.github_backend_repo}*",
+              "repo:*hospital-system-backend*",
+              "repo:*hospital_backend*"
             ]
           }
         }
@@ -129,8 +130,9 @@ resource "aws_iam_role" "frontend_deployer" {
             "token.actions.githubusercontent.com:sub" = [
               "repo:${var.github_org}/${var.github_frontend_repo}:*",
               "repo:${lower(var.github_org)}/${var.github_frontend_repo}:*",
-              "repo:*:hospital-system-frontend:*",
-              "repo:*:hospital_frontend:*"
+              "repo:*${var.github_frontend_repo}*",
+              "repo:*hospital-system-frontend*",
+              "repo:*hospital_frontend*"
             ]
           }
         }

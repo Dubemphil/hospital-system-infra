@@ -1,0 +1,73 @@
+name: Hospital System - Promote to Production (Manual)
+
+on:
+  workflow_dispatch:
+    inputs:
+      action:
+        description: 'Terraform Action to execute on PRODUCTION'
+        required: true
+        default: 'plan'
+        type: choice
+        options:
+          - plan
+          - apply
+      confirmation:
+        description: 'Type "PROD" to confirm apply (ignored for plan)'
+        required: false
+        default: ''
+
+env:
+  AWS_REGION: us-east-1
+  TF_VERSION: '1.5.7'
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  promote-to-production:
+    name: Promote to PRODUCTION Environment
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://devopsstandard.name.ng
+    defaults:
+      run:
+        working-directory: ./terraform/environments/prod
+
+    steps:
+      - name: Validate Manual Confirmation
+        if: github.event.inputs.action == 'apply'
+        run: |
+          if [ "${{ github.event.inputs.confirmation }}" != "PROD" ]; then
+            echo "ERROR: Confirmation check failed! You must type 'PROD' in the confirmation field to apply changes to Production."
+            exit 1
+          fi
+          echo "Production deployment confirmed."
+
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: ${{ env.TF_VERSION }}
+
+      - name: Configure AWS Credentials via GitHub OIDC
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+          audience: sts.amazonaws.com
+
+      - name: Terraform Init (Prod S3 Backend)
+        run: terraform init
+
+      - name: Terraform Plan (Prod)
+        run: terraform plan -no-color -out=tfplan
+
+      - name: Terraform Apply (Prod)
+        if: github.event.inputs.action == 'apply'
+        run: |
+          echo "Promoting verified architecture to Production AWS Environment..."
+          terraform apply -auto-approve tfplan
