@@ -12,3 +12,4 @@ paths = [
   '''(^|/)architecture.*''',
   '''(^|/)bootstrap/terraform\.tfstate.*'''
 ]
+
