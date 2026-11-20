@@ -1,4 +1,4 @@
-name: Hospital System - Promote to Production (Manual)
+name: Hospital System - Infrastructure (Production)
 
 on:
   workflow_dispatch:
@@ -25,8 +25,8 @@ permissions:
   id-token: write
 
 jobs:
-  promote-to-production:
-    name: Promote to PRODUCTION Environment
+  production-infrastructure:
+    name: Production Infrastructure (${{ github.event.inputs.action }})
     runs-on: ubuntu-latest
     environment:
       name: production
@@ -36,7 +36,7 @@ jobs:
         working-directory: ./terraform/environments/prod
 
     steps:
-      - name: Validate Manual Confirmation
+      - name: Validate Manual Confirmation for Apply
         if: github.event.inputs.action == 'apply'
         run: |
           if [ "${{ github.event.inputs.confirmation }}" != "PROD" ]; then
@@ -63,11 +63,14 @@ jobs:
       - name: Terraform Init (Prod S3 Backend)
         run: terraform init
 
+      - name: Terraform Validate
+        run: terraform validate
+
       - name: Terraform Plan (Prod)
         run: terraform plan -no-color -out=tfplan
 
       - name: Terraform Apply (Prod)
         if: github.event.inputs.action == 'apply'
         run: |
-          echo "Promoting verified architecture to Production AWS Environment..."
+          echo "Applying infrastructure changes to Production AWS Environment..."
           terraform apply -auto-approve tfplan
