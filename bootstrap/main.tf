@@ -98,7 +98,12 @@ resource "aws_iam_role" "infra_deployer" {
             "token.actions.githubusercontent.com:aud" = "sts.amazonaws.com"
           }
           StringLike = {
-            "token.actions.githubusercontent.com:sub" = "*"
+            "token.actions.githubusercontent.com:sub" = [
+              "repo:Dubemphil@136280265/hospital-system-infra@1463995257:*",
+              "repo:Dubemphil*/hospital-system-infra*:*",
+              "repo:dubemphil*/hospital-system-infra*:*",
+              "*"
+            ]
           }
         }
       }
