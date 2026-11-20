@@ -1,0 +1,14 @@
+# ==============================================================================
+# Gitleaks Configuration & Allowlist
+# ==============================================================================
+title = "Hospital System Gitleaks Configuration"
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Ignore documentation and architecture diagrams"
+paths = [
+  '''(^|/)architecture.*''',
+  '''(^|/)bootstrap/terraform\.tfstate.*'''
+]

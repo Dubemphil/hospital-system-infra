@@ -74,3 +74,4 @@ jobs:
         run: |
           echo "Applying infrastructure changes to Production AWS Environment..."
           terraform apply -auto-approve tfplan
+
