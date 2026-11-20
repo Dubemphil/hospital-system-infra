@@ -1,0 +1,310 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 960" width="100%" height="100%" style="background:#0f172a; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="awsGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.98"/>
+    </linearGradient>
+    <linearGradient id="githubGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="vpcGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.8"/>
+    </linearGradient>
+
+    <!-- Filters -->
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.45"/>
+    </filter>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <!-- Marker Arrow -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#38bdf8"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#10b981"/>
+    </marker>
+    <marker id="arrow-orange" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#f97316"/>
+    </marker>
+  </defs>
+
+  <!-- Title Banner -->
+  <text x="800" y="45" text-anchor="middle" fill="#f8fafc" font-size="24" font-weight="700" letter-spacing="0.5">ENTERPRISE HOSPITAL SYSTEM - CLOUD ARCHITECTURE &amp; DEVSECOPS BLUEPRINT</text>
+  <text x="800" y="70" text-anchor="middle" fill="#94a3b8" font-size="13">Zero-Trust OIDC Federation | 3-Tier Isolated VPC | Elastic ECS Fargate | S3 + CloudFront Single-Origin Reverse Proxy</text>
+
+  <!-- ========================================================================= -->
+  <!-- LEFT PANEL: DEVELOPER & GITHUB ACTIONS CI/CD                              -->
+  <!-- ========================================================================= -->
+
+  <!-- Developer Actor -->
+  <g transform="translate(40, 360)">
+    <circle cx="35" cy="35" r="28" fill="#334155" stroke="#38bdf8" stroke-width="2"/>
+    <circle cx="35" cy="24" r="10" fill="#f8fafc"/>
+    <path d="M 20 48 Q 35 34 50 48" fill="#f8fafc"/>
+    <text x="35" y="80" text-anchor="middle" fill="#f8fafc" font-size="12" font-weight="600">Lead Architect /</text>
+    <text x="35" y="95" text-anchor="middle" fill="#38bdf8" font-size="12" font-weight="600">DevOps Engineer</text>
+    <text x="35" y="112" text-anchor="middle" fill="#64748b" font-size="10">git commit &amp; push</text>
+  </g>
+
+  <!-- Flow Line: Dev to GitHub -->
+  <path d="M 105 400 L 150 400" fill="none" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4,4" marker-end="url(#arrow)"/>
+
+  <!-- GitHub Actions Boundary Container -->
+  <rect x="155" y="100" width="310" height="740" rx="16" fill="url(#githubGrad)" stroke="#334155" stroke-width="1.5" filter="url(#shadow)"/>
+  
+  <!-- GitHub Header -->
+  <rect x="155" y="100" width="310" height="50" rx="16" fill="#1e293b"/>
+  <rect x="155" y="134" width="310" height="16" fill="#1e293b"/>
+  <circle cx="185" cy="125" r="14" fill="#ffffff"/>
+  <path d="M 185 113 C 178 113 173 118 173 125 C 173 130 177 135 181 136 C 182 136 182 136 182 135 L 182 132 C 179 133 178 131 178 131 C 177 130 176 129 176 129 C 175 129 176 129 176 129 C 177 129 178 130 178 130 C 179 132 181 131 182 131 C 182 130 183 129 183 129 C 180 128 177 127 177 122 C 177 121 177 120 178 119 C 178 119 177 117 178 116 C 178 116 179 116 181 117 C 182 117 184 117 185 117 C 186 117 188 117 189 117 C 191 116 192 116 192 116 C 193 117 192 119 192 119 C 193 120 193 121 193 122 C 193 127 190 128 187 129 C 188 129 188 130 188 132 L 188 135 C 188 136 188 136 189 136 C 193 135 197 130 197 125 C 197 118 192 113 185 113 Z" fill="#111827"/>
+  <text x="210" y="130" fill="#f8fafc" font-size="15" font-weight="700">GitHub Actions CI/CD</text>
+
+  <!-- Repo Links Box inside CI/CD -->
+  <rect x="170" y="165" width="280" height="95" rx="8" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+  <text x="180" y="185" fill="#94a3b8" font-size="11" font-weight="700">3 DECOUPLED REPOSITORIES</text>
+  <text x="180" y="206" fill="#38bdf8" font-size="11">📦 hospital-system-infra (Terraform)</text>
+  <text x="180" y="226" fill="#10b981" font-size="11">☕ hospital-system-backend (Spring Boot)</text>
+  <text x="180" y="246" fill="#61dafb" font-size="11">⚛️ hospital-system-frontend (React 18)</text>
+
+  <!-- Job 1: Build, Lint & Security Scans -->
+  <rect x="170" y="275" width="280" height="295" rx="10" fill="#0f172a" stroke="#3b82f6" stroke-width="1"/>
+  <rect x="170" y="275" width="280" height="28" rx="10" fill="#1e3a8a"/>
+  <text x="185" y="294" fill="#bfdbfe" font-size="12" font-weight="700">STAGE 1: BUILD &amp; SECURITY GATES</text>
+
+  <!-- Step 1: Git Checkout -->
+  <rect x="185" y="315" width="250" height="32" rx="6" fill="#1e293b" stroke="#334155"/>
+  <text x="200" y="335" fill="#f8fafc" font-size="11">✓ actions/checkout@v4 (Deep Fetch)</text>
+
+  <!-- Step 2: Gitleaks -->
+  <rect x="185" y="355" width="250" height="42" rx="6" fill="#1e293b" stroke="#ef4444"/>
+  <circle cx="202" cy="376" r="10" fill="#ef4444"/>
+  <text x="202" y="380" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="700">G</text>
+  <text x="220" y="372" fill="#f8fafc" font-size="11" font-weight="600">Gitleaks Secret Scanner</text>
+  <text x="220" y="388" fill="#94a3b8" font-size="9">Zero Credential Leaks Verified</text>
+
+  <!-- Step 3: Hadolint -->
+  <rect x="185" y="405" width="250" height="42" rx="6" fill="#1e293b" stroke="#f59e0b"/>
+  <circle cx="202" cy="426" r="10" fill="#f59e0b"/>
+  <text x="202" y="430" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="700">H</text>
+  <text x="220" y="422" fill="#f8fafc" font-size="11" font-weight="600">Hadolint Dockerfile Linter</text>
+  <text x="220" y="438" fill="#94a3b8" font-size="9">Least-Privilege Non-Root User Rules</text>
+
+  <!-- Step 4: Trivy -->
+  <rect x="185" y="455" width="250" height="42" rx="6" fill="#1e293b" stroke="#06b6d4"/>
+  <circle cx="202" cy="476" r="10" fill="#06b6d4"/>
+  <text x="202" y="480" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="700">T</text>
+  <text x="220" y="472" fill="#f8fafc" font-size="11" font-weight="600">Trivy Vulnerability Scanner</text>
+  <text x="220" y="488" fill="#94a3b8" font-size="9">CVE Dependency &amp; FS Verification</text>
+
+  <!-- Step 5: Java & Node Build -->
+  <rect x="185" y="505" width="250" height="52" rx="6" fill="#1e293b" stroke="#10b981"/>
+  <text x="195" y="525" fill="#10b981" font-size="11" font-weight="600">✓ Amazon Corretto 8 &amp; Maven Build</text>
+  <text x="195" y="545" fill="#61dafb" font-size="11" font-weight="600">✓ React 18 Webpack Production Build</text>
+
+  <!-- Job 2: Keyless Deploy & OIDC -->
+  <rect x="170" y="585" width="280" height="235" rx="10" fill="#0f172a" stroke="#10b981" stroke-width="1"/>
+  <rect x="170" y="585" width="280" height="28" rx="10" fill="#064e3b"/>
+  <text x="185" y="604" fill="#a7f3d0" font-size="12" font-weight="700">STAGE 2: ZERO-TRUST OIDC DEPLOY</text>
+
+  <!-- OIDC Exchange Step -->
+  <rect x="185" y="625" width="250" height="60" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+  <text x="195" y="645" fill="#f8fafc" font-size="11" font-weight="700">GitHub OIDC Token Request</text>
+  <text x="195" y="660" fill="#6ee7b7" font-size="9">aud: sts.amazonaws.com</text>
+  <text x="195" y="673" fill="#94a3b8" font-size="8">sub: repo:Dubemphil@136280265/...:env:dev</text>
+
+  <rect x="185" y="695" width="250" height="50" rx="6" fill="#1e293b" stroke="#38bdf8"/>
+  <text x="195" y="715" fill="#38bdf8" font-size="11" font-weight="600">sts:AssumeRoleWithWebIdentity</text>
+  <text x="195" y="732" fill="#94a3b8" font-size="9">Short-lived 1-hr STS Temporary Token</text>
+
+  <!-- Deployment Execution -->
+  <rect x="185" y="755" width="250" height="52" rx="6" fill="#1e293b" stroke="#8b5cf6"/>
+  <text x="195" y="773" fill="#c084fc" font-size="10" font-weight="600">🚀 Terraform Apply (environments/dev)</text>
+  <text x="195" y="788" fill="#c084fc" font-size="10" font-weight="600">🚀 ECR Push &amp; ECS Fargate Update</text>
+  <text x="195" y="801" fill="#c084fc" font-size="10" font-weight="600">🚀 S3 Sync &amp; CloudFront Invalidate</text>
+
+  <!-- ========================================================================= -->
+  <!-- CENTER PANEL: AMAZON WEB SERVICES (AWS CLOUD BOUNDARY)                    -->
+  <!-- ========================================================================= -->
+
+  <!-- AWS Cloud Outer Container -->
+  <rect x="490" y="100" width="860" height="740" rx="20" fill="url(#awsGrad)" stroke="#ff9900" stroke-width="2" filter="url(#shadow)"/>
+  
+  <!-- AWS Header Badge -->
+  <rect x="490" y="100" width="860" height="48" rx="20" fill="#1e293b"/>
+  <rect x="490" y="132" width="860" height="16" fill="#1e293b"/>
+  <text x="520" y="131" fill="#ff9900" font-size="16" font-weight="800">AWS</text>
+  <text x="560" y="130" fill="#f8fafc" font-size="15" font-weight="700">Amazon Web Services (Account: 323198192259 | Region: us-east-1)</text>
+
+  <!-- Edge Services (CloudFront + S3 + ACM) -->
+  <g transform="translate(515, 160)">
+    <rect x="0" y="0" width="810" height="110" rx="12" fill="#1e293b" stroke="#8b5cf6" stroke-width="1.5"/>
+    <text x="20" y="24" fill="#c084fc" font-size="13" font-weight="700">AWS EDGE ARCHITECTURE: CLOUDFRONT CDN &amp; S3 WEB PORTAL</text>
+
+    <!-- CloudFront Distribution -->
+    <rect x="20" y="38" width="370" height="60" rx="8" fill="#0f172a" stroke="#a855f7"/>
+    <text x="35" y="58" fill="#ffffff" font-size="12" font-weight="700">Amazon CloudFront Distribution</text>
+    <text x="35" y="74" fill="#a855f7" font-size="10">E1EIZP6V20O6OY | TLSv1.2_2021 (ACM Certificate)</text>
+    <text x="35" y="88" fill="#cbd5e1" font-size="9">Route / ➔ S3 React SPA  |  Route /api/* ➔ Backend ALB (Zero CORS!)</text>
+
+    <!-- S3 Static Bucket -->
+    <rect x="420" y="38" width="370" height="60" rx="8" fill="#0f172a" stroke="#10b981"/>
+    <text x="435" y="58" fill="#ffffff" font-size="12" font-weight="700">Amazon S3 (Private Web Assets Bucket)</text>
+    <text x="435" y="74" fill="#34d399" font-size="10">hospital-system-dev-frontend-assets</text>
+    <text x="435" y="88" fill="#94a3b8" font-size="9">Locked by Origin Access Control (OAC) | Zero Public Read</text>
+  </g>
+
+  <!-- 3-Tier VPC Container -->
+  <g transform="translate(515, 285)">
+    <rect x="0" y="0" width="810" height="535" rx="14" fill="url(#vpcGrad)" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="20" y="24" fill="#38bdf8" font-size="13" font-weight="700">ISOLATED 3-TIER VPC (10.0.0.0/16 - Dev / 10.1.0.0/16 - Prod)</text>
+
+    <!-- TIER 1: PUBLIC SUBNETS -->
+    <rect x="15" y="35" width="780" height="95" rx="8" fill="#0f172a" stroke="#0284c7" stroke-dasharray="3,3"/>
+    <text x="30" y="53" fill="#38bdf8" font-size="11" font-weight="700">TIER 1: PUBLIC INGRESS SUBNETS (10.0.1.0/24 &amp; 10.0.2.0/24)</text>
+
+    <!-- Internet Gateway -->
+    <rect x="30" y="63" width="160" height="52" rx="6" fill="#1e293b" stroke="#0284c7"/>
+    <text x="40" y="83" fill="#ffffff" font-size="11" font-weight="600">Internet Gateway</text>
+    <text x="40" y="99" fill="#94a3b8" font-size="9">VPC Ingress / Egress</text>
+
+    <!-- NAT Gateway -->
+    <rect x="210" y="63" width="170" height="52" rx="6" fill="#1e293b" stroke="#0284c7"/>
+    <text x="220" y="83" fill="#ffffff" font-size="11" font-weight="600">NAT Gateway (32.201...)</text>
+    <text x="220" y="99" fill="#94a3b8" font-size="9">Outbound for App Subnets</text>
+
+    <!-- Application Load Balancer -->
+    <rect x="400" y="63" width="380" height="52" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="415" y="83" fill="#ffffff" font-size="11" font-weight="700">Application Load Balancer (ALB)</text>
+    <text x="415" y="99" fill="#38bdf8" font-size="9">hospital-system-dev-alb-...us-east-1.elb.amazonaws.com (Port 80/443)</text>
+
+    <!-- TIER 2: PRIVATE APPLICATION SUBNETS -->
+    <rect x="15" y="145" width="780" height="195" rx="8" fill="#0f172a" stroke="#f59e0b" stroke-dasharray="3,3"/>
+    <text x="30" y="165" fill="#f59e0b" font-size="11" font-weight="700">TIER 2: PRIVATE APPLICATION SUBNETS (10.0.10.0/24 &amp; 10.0.20.0/24)</text>
+
+    <!-- ECR Repository -->
+    <rect x="30" y="180" width="230" height="70" rx="6" fill="#1e293b" stroke="#f59e0b"/>
+    <text x="45" y="203" fill="#ffffff" font-size="11" font-weight="600">Amazon ECR Registry</text>
+    <text x="45" y="221" fill="#fcd34d" font-size="9">hospital-system-dev-backend</text>
+    <text x="45" y="237" fill="#94a3b8" font-size="8">Immutable SHA Tags + Vulnerability Scanning</text>
+
+    <!-- ECS Fargate Cluster -->
+    <rect x="280" y="180" width="500" height="145" rx="8" fill="#1e293b" stroke="#f97316" stroke-width="1.5"/>
+    <text x="300" y="205" fill="#ffffff" font-size="12" font-weight="700">Amazon ECS Fargate Cluster: hospital-system-dev-cluster</text>
+    
+    <!-- Fargate Task Box -->
+    <rect x="300" y="220" width="460" height="90" rx="6" fill="#0f172a" stroke="#f97316"/>
+    <text x="315" y="242" fill="#fdba74" font-size="11" font-weight="700">Service: hospital-system-dev-backend-service (Port 8080)</text>
+    <text x="315" y="260" fill="#f8fafc" font-size="10">☕ Spring Boot Java 8 Microservice Container</text>
+    <text x="315" y="278" fill="#94a3b8" font-size="9">• Zero OS / Host Management | Auto-scaling Task Definition</text>
+    <text x="315" y="295" fill="#94a3b8" font-size="9">• Healthcheck: /health HTTP 200 OK | IAM Task Execution Role</text>
+
+    <!-- TIER 3: PRIVATE DATABASE SUBNETS -->
+    <rect x="15" y="355" width="780" height="165" rx="8" fill="#0f172a" stroke="#ec4899" stroke-dasharray="3,3"/>
+    <text x="30" y="375" fill="#ec4899" font-size="11" font-weight="700">TIER 3: ISOLATED PRIVATE DATABASE SUBNETS (10.0.30.0/24 &amp; 10.0.40.0/24)</text>
+
+    <!-- Amazon RDS MySQL -->
+    <rect x="30" y="390" width="370" height="115" rx="8" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="45" y="415" fill="#ffffff" font-size="12" font-weight="700">Amazon RDS for MySQL 8.0</text>
+    <text x="45" y="433" fill="#60a5fa" font-size="10">hospital-system-dev-mysql (Port 3306)</text>
+    <text x="45" y="451" fill="#94a3b8" font-size="9">• Single-AZ (Dev) / Multi-AZ Synchronous Failover (Prod)</text>
+    <text x="45" y="468" fill="#94a3b8" font-size="9">• Zero Internet Ingress | Strictly accepts Port 3306 from ECS SG</text>
+    <text x="45" y="485" fill="#94a3b8" font-size="9">• Point-in-Time Recovery &amp; Automated Backups</text>
+
+    <!-- Secrets Manager & KMS -->
+    <rect x="420" y="390" width="360" height="115" rx="8" fill="#1e293b" stroke="#ec4899" stroke-width="1.5"/>
+    <text x="435" y="415" fill="#ffffff" font-size="12" font-weight="700">AWS Secrets Manager &amp; AWS KMS</text>
+    <text x="435" y="433" fill="#f472b6" font-size="10">hospital-system-dev-db-credentials</text>
+    <text x="435" y="451" fill="#94a3b8" font-size="9">• Customer-Managed KMS Key: 1bf8422c-8e6d...</text>
+    <text x="435" y="468" fill="#94a3b8" font-size="9">• Dynamic Credential Injection into ECS Task</text>
+    <text x="435" y="485" fill="#94a3b8" font-size="9">• Hardware-Backed AES-256 Encryption (HIPAA Compliant)</text>
+  </g>
+
+  <!-- ========================================================================= -->
+  <!-- RIGHT PANEL: USERS, DNS & OBSERVABILITY                                   -->
+  <!-- ========================================================================= -->
+
+  <!-- Top Right: CloudWatch Observability -->
+  <g transform="translate(1375, 120)">
+    <rect x="0" y="0" width="200" height="135" rx="10" fill="#1e293b" stroke="#ec4899" stroke-width="1.5" filter="url(#shadow)"/>
+    <circle cx="25" cy="25" r="10" fill="#ec4899"/>
+    <text x="45" y="29" fill="#ffffff" font-size="12" font-weight="700">CloudWatch</text>
+    <text x="15" y="55" fill="#f472b6" font-size="10" font-weight="600">/ecs/hospital-system-dev-backend</text>
+    <text x="15" y="75" fill="#94a3b8" font-size="9">• Real-Time Log Streaming</text>
+    <text x="15" y="93" fill="#94a3b8" font-size="9">• Container CPU/RAM Metrics</text>
+    <text x="15" y="111" fill="#94a3b8" font-size="9">• Target Group 5XX Alarms</text>
+  </g>
+
+  <!-- Middle Right: Healthcare Users / Patients -->
+  <g transform="translate(1420, 310)">
+    <circle cx="50" cy="40" r="28" fill="#334155" stroke="#10b981" stroke-width="2"/>
+    <circle cx="50" cy="28" r="10" fill="#f8fafc"/>
+    <path d="M 35 52 Q 50 38 65 52" fill="#f8fafc"/>
+    <text x="50" y="85" text-anchor="middle" fill="#f8fafc" font-size="13" font-weight="700">Patients &amp; Doctors</text>
+    <text x="50" y="103" text-anchor="middle" fill="#34d399" font-size="11" font-weight="600">Web Portal Users</text>
+    <text x="50" y="125" text-anchor="middle" fill="#38bdf8" font-size="10">https://devopsstandard.name.ng</text>
+  </g>
+
+  <!-- Flow Line: Users to CloudFront -->
+  <path d="M 1420 370 Q 1200 230 920 220" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrow-green)"/>
+
+  <!-- Bottom Right: Whogohost DNS Mapping Table -->
+  <g transform="translate(1365, 500)">
+    <rect x="0" y="0" width="220" height="200" rx="10" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="15" y="25" fill="#38bdf8" font-size="12" font-weight="700">🌐 Whogohost DNS Records</text>
+    
+    <!-- Table Header -->
+    <rect x="10" y="38" width="200" height="22" rx="4" fill="#0f172a"/>
+    <text x="18" y="53" fill="#94a3b8" font-size="9" font-weight="700">HOST</text>
+    <text x="65" y="53" fill="#94a3b8" font-size="9" font-weight="700">TYPE</text>
+    <text x="105" y="53" fill="#94a3b8" font-size="9" font-weight="700">TARGET</text>
+
+    <!-- Row 1: CNAME ACM Validation -->
+    <text x="15" y="78" fill="#f8fafc" font-size="9" font-weight="600">_e4c20...</text>
+    <text x="65" y="78" fill="#38bdf8" font-size="9">CNAME</text>
+    <text x="105" y="78" fill="#a855f7" font-size="8">acm-validations.aws</text>
+
+    <!-- Row 2: www Frontend -->
+    <text x="15" y="108" fill="#f8fafc" font-size="9" font-weight="600">www</text>
+    <text x="65" y="108" fill="#38bdf8" font-size="9">CNAME</text>
+    <text x="105" y="108" fill="#38bdf8" font-size="8">d1v3mx...cloudfront</text>
+
+    <!-- Row 3: @ Apex -->
+    <text x="15" y="138" fill="#f8fafc" font-size="9" font-weight="600">@ (apex)</text>
+    <text x="65" y="138" fill="#38bdf8" font-size="9">CNAME</text>
+    <text x="105" y="138" fill="#38bdf8" font-size="8">d1v3mx...cloudfront</text>
+
+    <!-- Row 4: api Subdomain -->
+    <text x="15" y="168" fill="#f8fafc" font-size="9" font-weight="600">api</text>
+    <text x="65" y="168" fill="#38bdf8" font-size="9">CNAME</text>
+    <text x="105" y="168" fill="#f59e0b" font-size="8">hospital...elb.aws</text>
+
+    <text x="15" y="190" fill="#6ee7b7" font-size="8">✓ Status: ACTIVE &amp; RESOLVED</text>
+  </g>
+
+  <!-- Connectors: Internal Flow -->
+  <!-- CloudFront to ALB -->
+  <path d="M 600 220 L 600 348" fill="none" stroke="#a855f7" stroke-width="2" stroke-dasharray="4,4" marker-end="url(#arrow)"/>
+  <text x="610" y="275" fill="#c084fc" font-size="10" font-weight="600">/api/* Reverse Proxy</text>
+
+  <!-- CloudFront to S3 -->
+  <path d="M 400 200 L 420 200" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrow-green)"/>
+
+  <!-- ALB to ECS Fargate -->
+  <path d="M 680 400 L 680 460" fill="none" stroke="#f97316" stroke-width="2" marker-end="url(#arrow-orange)"/>
+  <text x="690" y="435" fill="#fdba74" font-size="10" font-weight="600">Target Group: Port 8080</text>
+
+  <!-- ECS Fargate to RDS -->
+  <path d="M 660 605 L 660 675" fill="none" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="670" y="645" fill="#60a5fa" font-size="10" font-weight="600">MySQL Connection: Port 3306</text>
+
+  <!-- ECS Fargate to CloudWatch -->
+  <path d="M 1295 530 Q 1330 350 1375 220" fill="none" stroke="#ec4899" stroke-width="1.5" stroke-dasharray="3,3" marker-end="url(#arrow)"/>
+
+</svg>
