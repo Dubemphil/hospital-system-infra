@@ -1,4 +1,4 @@
-name: Hospital System - Infrastructure CI/CD (Dev Deployment)
+name: Infrastructure in Development (Plan & Apply)
 
 on:
   push:
@@ -101,7 +101,7 @@ jobs:
   # Stage 3: Automated Deploy to DEV Environment
   # ============================================================================
   deploy-dev:
-    name: Deploy to DEV Environment
+    name: Terraform Plan & Apply (Development)
     needs: code-quality-and-security
     if: (github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')) || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest

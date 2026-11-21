@@ -1,4 +1,4 @@
-name: Hospital System - Infrastructure (Production)
+name: Infrastructure in Production (Plan & Apply)
 
 on:
   workflow_dispatch:
@@ -26,7 +26,7 @@ permissions:
 
 jobs:
   production-infrastructure:
-    name: Production Infrastructure (${{ github.event.inputs.action }})
+    name: Terraform Plan & Apply (Production)
     runs-on: ubuntu-latest
     environment:
       name: production
