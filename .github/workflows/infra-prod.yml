@@ -37,6 +37,9 @@ jobs:
         working-directory: ./terraform/environments/prod
 
     steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
+
       - name: Validate Manual Confirmation for Apply
         if: github.event.inputs.action == 'apply'
         run: |
@@ -54,9 +57,6 @@ jobs:
             exit 1
           fi
           echo "CRITICAL: Production destruction confirmed."
-
-      - name: Checkout Source Code
-        uses: actions/checkout@v4
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
