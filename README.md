@@ -22,9 +22,11 @@ This enterprise hospital management system is architected across three decoupled
 | **Frontend Web Portal** | [hospital-system-frontend](https://github.com/Dubemphil/hospital-system-frontend) | React 18, Axios, Bootstrap, Node.js 18 | Patient portal, doctor scheduling dashboard, appointment booking UI | Static bundle build ➔ S3 static hosting ➔ CloudFront cache invalidation |
 
 * **Live Web Portal**: [https://www.devopsstandard.name.ng](https://www.devopsstandard.name.ng) (or [https://devopsstandard.name.ng](https://devopsstandard.name.ng))
+![alt text](image.png)
+
 * **Live Direct CDN**: [https://d1v3mxc3uivi1w.cloudfront.net](https://d1v3mxc3uivi1w.cloudfront.net)
 * **Backend API Health Check**: [https://d1v3mxc3uivi1w.cloudfront.net/api/health](https://d1v3mxc3uivi1w.cloudfront.net/api/health)
-
+![alt text](image-1.png)
 ---
 
 # Phase 1: Architectural Decision Records (ADR) & Executive Strategy
@@ -269,14 +271,14 @@ Every code commit triggers an automated, zero-trust DevSecOps workflow executed 
 
 ### 5. Verification & Observability Dashboards
 
-Hiring managers and auditors can inspect the live running infrastructure across the following AWS dashboards:
 
 #### A. CloudFront CDN & SSL/TLS Verification
 * **AWS Console**: CloudFront ➔ Distributions ➔ `E1EIZP6V20O6OY`
 * **Status**: `Enabled` | Custom SSL: `devopsstandard.name.ng` | Origins: S3 (OAC) + ALB (`/api/*`).
 * *Visual Evidence Placeholder*:
   ```
-  [Insert Screenshot: CloudFront Distribution Details showing Custom Domain & Status Enabled]
+  ![alt text](image-2.png)
+  [CloudFront Distribution Details showing Custom Domain & Status Enabled]
   ```
 
 #### B. Amazon ECS Fargate Container Service
@@ -284,7 +286,8 @@ Hiring managers and auditors can inspect the live running infrastructure across 
 * **Status**: `ACTIVE` | Desired: 1 | Running: 1 | Launch Type: `FARGATE`.
 * *Visual Evidence Placeholder*:
   ```
-  [Insert Screenshot: ECS Service showing 1/1 Running Task with Healthy Status]
+  ![alt text](image-3.png)
+  [ECS Service showing 1/1 Running Task with Healthy Status]
   ```
 
 #### C. Application Load Balancer Target Group Health
@@ -292,7 +295,8 @@ Hiring managers and auditors can inspect the live running infrastructure across 
 * **Health Check**: Port 8080 `/health` ➔ Status: **100% Healthy (1 of 1 instances)**.
 * *Visual Evidence Placeholder*:
   ```
-  [Insert Screenshot: ALB Target Group showing 1 of 1 Healthy Target]
+  ![alt text](image-4.png)
+  [ALB Target Group showing 1 of 1 Healthy Target]
   ```
 
 #### D. Amazon RDS Private Database Isolation
@@ -301,7 +305,8 @@ Hiring managers and auditors can inspect the live running infrastructure across 
 * **Subnet Group**: Dedicated private DB subnets (`Publicly Accessible: No`).
 * *Visual Evidence Placeholder*:
   ```
-  [Insert Screenshot: RDS Instance Connectivity showing Private Subnet Group]
+  ![alt text](image-5.png)
+  [RDS Instance Connectivity showing Private Subnet Group]
   ```
 
 #### E. CloudWatch Real-Time Application Logs
@@ -309,7 +314,8 @@ Hiring managers and auditors can inspect the live running infrastructure across 
 * **Telemetry**: Live Spring Boot HikariCP database connection pooling and API request processing.
 * *Visual Evidence Placeholder*:
   ```
-  [Insert Screenshot: CloudWatch Logs showing Spring Boot startup & DB connectivity]
+  ![alt text](image-6.png)
+  [CloudWatch Logs showing Spring Boot startup & DB connectivity]
   ```
 
 ---
