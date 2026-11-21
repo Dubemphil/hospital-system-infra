@@ -1,4 +1,4 @@
-name: Infrastructure in Development (Plan & Apply)
+name: Infrastructure in Development (Plan, Apply, Destroy)
 
 on:
   push:
@@ -12,13 +12,18 @@ on:
   workflow_dispatch:
     inputs:
       action:
-        description: 'Action (plan or apply)'
+        description: 'Action to execute on DEV'
         required: true
         default: 'apply'
         type: choice
         options:
           - plan
           - apply
+          - destroy
+      confirmation:
+        description: 'Type "DESTROY" if destroying Dev environment (ignored for plan/apply)'
+        required: false
+        default: ''
 
 env:
   AWS_REGION: us-east-1
@@ -101,7 +106,7 @@ jobs:
   # Stage 3: Automated Deploy to DEV Environment
   # ============================================================================
   deploy-dev:
-    name: Terraform Plan & Apply (Development)
+    name: Terraform Execution (Development)
     needs: code-quality-and-security
     if: (github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')) || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
@@ -112,6 +117,15 @@ jobs:
         working-directory: ./terraform/environments/dev
 
     steps:
+      - name: Validate Manual Confirmation for Destroy
+        if: github.event.inputs.action == 'destroy'
+        run: |
+          if [ "${{ github.event.inputs.confirmation }}" != "DESTROY" ]; then
+            echo "ERROR: Confirmation check failed! You must type 'DESTROY' in the confirmation field to destroy Dev."
+            exit 1
+          fi
+          echo "Development environment destruction confirmed."
+
       - name: Checkout Source Code
         uses: actions/checkout@v4
 
@@ -131,6 +145,7 @@ jobs:
         run: terraform init
 
       - name: Terraform Plan (Dev)
+        if: github.event.inputs.action != 'destroy'
         run: terraform plan -no-color -out=tfplan
 
       - name: Terraform Apply (Dev)
@@ -138,3 +153,9 @@ jobs:
         run: |
           echo "Applying verified Terraform plan to Dev AWS Environment..."
           terraform apply -auto-approve tfplan
+
+      - name: Terraform Destroy (Dev)
+        if: github.event.inputs.action == 'destroy'
+        run: |
+          echo "WARNING: Destroying Dev AWS Environment resources..."
+          terraform destroy -auto-approve
