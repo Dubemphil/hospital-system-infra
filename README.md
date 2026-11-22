@@ -23,12 +23,12 @@ This enterprise hospital management system is architected across three decoupled
 
 * **Live Web Portal**: [https://www.devopsstandard.name.ng](https://www.devopsstandard.name.ng) (or [https://devopsstandard.name.ng](https://devopsstandard.name.ng))
 
-![Live Web Portal](image.png)
+![Live Web Portal](images/image.png)
 
 * **Live Direct CDN**: [https://d1v3mxc3uivi1w.cloudfront.net](https://d1v3mxc3uivi1w.cloudfront.net)
 * **Backend API Health Check**: [https://d1v3mxc3uivi1w.cloudfront.net/api/health](https://d1v3mxc3uivi1w.cloudfront.net/api/health)
 
-![Backend API Health Check](image-1.png)
+![Backend API Health Check](images/image-1.png)
 ---
 
 # Phase 1: Architectural Decision Records (ADR) & Executive Strategy
@@ -279,21 +279,21 @@ Every code commit triggers an automated, zero-trust DevSecOps workflow executed 
 * **Status**: `Enabled` | Custom SSL: `devopsstandard.name.ng` | Origins: S3 (OAC) + ALB (`/api/*`).
 * **Visual Verification Evidence**:
 
-![CloudFront Distribution Details showing Custom Domain & Status Enabled](image-2.png)
+![CloudFront Distribution Details showing Custom Domain & Status Enabled](images/image-2.png)
 
 #### B. Amazon ECS Fargate Container Service
 * **AWS Console**: Elastic Container Service ➔ Clusters ➔ `hospital-system-dev-cluster` ➔ `hospital-system-dev-backend-service`
 * **Status**: `ACTIVE` | Desired: 1 | Running: 1 | Launch Type: `FARGATE`.
 * **Visual Verification Evidence**:
 
-![ECS Service showing 1/1 Running Task with Healthy Status](image-3.png)
+![ECS Service showing 1/1 Running Task with Healthy Status](images/image-3.png)
 
 #### C. Application Load Balancer Target Group Health
 * **AWS Console**: EC2 ➔ Target Groups ➔ `hospital-system-dev-tg`
 * **Health Check**: Port 8080 `/health` ➔ Status: **100% Healthy (1 of 1 instances)**.
 * **Visual Verification Evidence**:
 
-![ALB Target Group showing 1 of 1 Healthy Target](image-4.png)
+![ALB Target Group showing 1 of 1 Healthy Target](images/image-4.png)
 
 #### D. Amazon RDS Private Database Isolation
 * **AWS Console**: RDS ➔ Databases ➔ `hospital-system-dev-mysql`
@@ -301,15 +301,15 @@ Every code commit triggers an automated, zero-trust DevSecOps workflow executed 
 * **Subnet Group**: Dedicated private DB subnets (`Publicly Accessible: No`).
 * **Visual Verification Evidence**:
 
-![RDS Instance Connectivity showing Private Subnet Group](image-5.png)
+![RDS Instance Connectivity showing Private Subnet Group](images/image-5.png)
 
 #### E. CloudWatch Real-Time Application Logs
 * **AWS Console**: CloudWatch ➔ Log groups ➔ `/ecs/hospital-system-dev-backend`
 * **Telemetry**: Live Spring Boot HikariCP database connection pooling and API request processing.
 * **Visual Verification Evidence**:
 
-![CloudWatch Logs showing Spring Boot startup & DB connectivity](image-6.png)
-
+![CloudWatch Logs showing Spring Boot startup & DB connectivity](images/image-6.png)
+![alt text](images/image-7.png)
 ---
 
 ### 6. Enterprise Production Rollout Guide (How to Promote)
@@ -362,7 +362,7 @@ hospital_app/
 *(Final Phase: End-to-End Architectural Diagram modeled with official cloud logos)*
 
 <p align="center">
-  <img src="./architecture-diagram.svg" alt="Enterprise Cloud Architecture and DevSecOps Blueprint" width="100%" />
+  <img src="./images/enterprise_hospital_system_cloud_devsecops_blueprint.svg" alt="Enterprise Cloud Architecture and DevSecOps Blueprint" width="100%" />
 </p>
 
 ```
